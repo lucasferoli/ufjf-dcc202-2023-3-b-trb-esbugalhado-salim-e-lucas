@@ -2,7 +2,8 @@ import {
     atualizaDado,
     adicionaValor,
     imprimeTabuleiro,
-    atualizaSoma
+    atualizaSoma,
+    retiraValorDoTabuleiro,
 } from './funcoes.js';
 
 function acaoJogador(coluna){
@@ -10,6 +11,7 @@ function acaoJogador(coluna){
     if(conseguiu){
         imprimeTabuleiro(tabuleiroJogador, colunasJogador);
         atualizaSoma(coluna, somaTextoJogador, colunasJogador);
+        retiraValorDoTabuleiro(colunasInimigo, coluna, dadoValor);
         dadoValor = atualizaDado(dadoImg);
     } else {
         //FIXME:

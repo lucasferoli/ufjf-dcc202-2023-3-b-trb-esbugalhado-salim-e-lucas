@@ -75,9 +75,31 @@ function atualizaSoma(indice, somaTexto, colunas){
     somaTexto[indice].textContent = soma;
 }
 
+function retiraValorDoTabuleiro(colunas, coluna, valor){
+    if(coluna < 0 || coluna > 2) {
+        console.log("Coluna inválida");
+        return;
+    }
+    for(let i = 0; i < 3; i++){
+        if(colunas[coluna][i] == valor){
+            colunas[coluna][i] = 0;
+        }
+    }
+    //Corrige posição dos valores
+    //FIXME: Aqui funciona, mas gostaria de fazer mais eficiente
+    for(let i = 1; i < 3; i++){
+        if(colunas[coluna][i-1] == 0){
+            colunas[coluna][i - 1] = colunas[coluna][i];
+            colunas[coluna][i] = 0;
+        }
+    }
+    return;
+}
+
 export {
     atualizaDado,
     imprimeTabuleiro,
     adicionaValor,
-    atualizaSoma
+    atualizaSoma,
+    retiraValorDoTabuleiro
 }
