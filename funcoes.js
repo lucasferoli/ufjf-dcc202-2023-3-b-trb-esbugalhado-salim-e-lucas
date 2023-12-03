@@ -22,6 +22,20 @@ function atualizaDado(dadoTexto){
     return dadoValor;
 }
 
+function imprimeTabuleiro(tabuleiro, colunas){
+    for(let i = 0; i < 3; i++){
+        for(let j = 0; j < 3; j++){
+            let k = i * 3 + j;
+            if(colunas[i][j] == 0){
+                tabuleiro[k].src = "";
+            } else {
+                tabuleiro[k].src = imagemDado(colunas[i][j] - 1);
+            }
+        }
+    }
+}
+
 export {
-    atualizaDado
+    atualizaDado,
+    imprimeTabuleiro
 }
