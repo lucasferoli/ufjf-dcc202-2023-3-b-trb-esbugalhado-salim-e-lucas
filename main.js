@@ -53,7 +53,7 @@ function acaoJogador(coluna){
             //Troca o dado
             dadoValor = atualizaDado(dadoImg);
             //Chama ação do inimigo
-            setTimeout(acaoInimigo(), 1000);
+            setTimeout(acaoInimigo, 1000);
         }
     } else {
         //FIXME:
