@@ -101,5 +101,6 @@ export {
     imprimeTabuleiro,
     adicionaValor,
     atualizaSoma,
-    retiraValorDoTabuleiro
+    retiraValorDoTabuleiro,
+    rolarDado
 }

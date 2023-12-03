@@ -4,6 +4,7 @@ import {
     imprimeTabuleiro,
     atualizaSoma,
     retiraValorDoTabuleiro,
+    rolarDado
 } from './funcoes.js';
 
 function acaoJogador(coluna){
@@ -15,12 +16,32 @@ function acaoJogador(coluna){
         //Atualiza tabuleiro inimigo
         retiraValorDoTabuleiro(colunasInimigo, coluna, dadoValor);
         atualizaSoma(coluna, somaTextoInimigo, colunasInimigo);
+        imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
+        //Troca o dado
         dadoValor = atualizaDado(dadoImg);
+        //Chama ação do inimigo
+        acaoInimigo();
     } else {
         //FIXME:
         //Colocar som ou alguma coisa para indicar que não conseguiu colocar
         console.log("Não conseguiu colocar");
     }
+}
+function acaoInimigo(){
+    dadoInimigo = rolarDado();
+    let coluna = Math.floor(Math.random() * 3);
+    let conseguiu = adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
+    while(!conseguiu){
+        coluna = Math.floor(Math.random() * 3);
+        conseguiu = adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
+    }
+    //Atualiza tabuleiro inimigo
+    imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
+    atualizaSoma(coluna, somaTextoInimigo, colunasInimigo);
+    //Atualiza tabuleiro jogador
+    retiraValorDoTabuleiro(colunasJogador, coluna, dadoInimigo, caixasJogador);
+    atualizaSoma(coluna, somaTextoJogador, colunasJogador);
+    imprimeTabuleiro(tabuleiroJogador, colunasJogador);
 }
 
 
