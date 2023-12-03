@@ -1,6 +1,12 @@
 import {
     atualizaDado
 } from './funcoes.js';
+
+function acaoJogador(coluna){
+    
+}
+
+
 //Recebe os elementos do HTML do jogador
 const tabuleiroJogador = document.querySelectorAll("#jogador .caixa img");
 const somaTextoJogador = document.querySelectorAll("#somaPlayer .caixa p");
@@ -32,3 +38,6 @@ let dadoInimigo = 0;
 let jogoTerminou = false;
 
 dadoValor = atualizaDado(dadoImg);
+for(let i = 0; i < 3; i++){
+    botoes[i].addEventListener("click", () => acaoJogador(i));
+}
