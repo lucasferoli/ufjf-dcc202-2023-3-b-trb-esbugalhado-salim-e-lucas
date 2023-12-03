@@ -7,21 +7,21 @@ const spritesDados = [
     'Sprites/dado6.png'
 ]
 
+//Retorna um número aleatório entre 1 e 6
 function rolarDado(){
     return Math.floor(Math.random() * 6) + 1;
 }
-
+// Retorna o caminho da imagem do dado
 function imagemDado(indice){
     return spritesDados[indice];
 }
-
 // atualiza o valor do dado no HTML
 function atualizaDado(dadoTexto){
     let dadoValor = rolarDado();
     dadoTexto.src = imagemDado(dadoValor - 1);
     return dadoValor;
 }
-
+// Imprime o tabuleiro no HTML
 function imprimeTabuleiro(tabuleiro, colunas){
     for(let i = 0; i < 3; i++){
         for(let j = 0; j < 3; j++){
@@ -34,7 +34,7 @@ function imprimeTabuleiro(tabuleiro, colunas){
         }
     }
 }
-
+// Adiciona um valor na coluna do tabuleiro
 function adicionaValor(tabuleiro, coluna, valor){
     if(coluna < 0 || coluna > 2) {
         console.log("Coluna inválida");
@@ -51,7 +51,7 @@ function adicionaValor(tabuleiro, coluna, valor){
     console.log("Coluna cheia");
     return false;
 }
-
+// Retorna quantas vezes um valor aparece na coluna
 function quantasVezesApareceNaColuna(coluna, valor){
     let vezes = 0;
     for(let i = 0; i < 3; i++){
@@ -61,6 +61,7 @@ function quantasVezesApareceNaColuna(coluna, valor){
     }
     return vezes;
 }
+// Retorna a soma de uma coluna
 function somaColuna(coluna){
     let soma = 0;
     for(let i = 0; i < 3; i++){
@@ -68,6 +69,7 @@ function somaColuna(coluna){
     }
     return soma;
 }
+// Atualiza a soma no HTML
 function atualizaSoma(indice, somaTexto, colunas){
     let soma = somaColuna(colunas[indice]);
     somaTexto[indice].textContent = soma;
