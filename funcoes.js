@@ -35,7 +35,7 @@ function imprimeTabuleiro(tabuleiro, colunas){
     }
 }
 
-function adicionaValor(tabuleiro, coluna, valor, caixas){
+function adicionaValor(tabuleiro, coluna, valor){
     if(coluna < 0 || coluna > 2) {
         console.log("Coluna inválida");
         return false; // Se a coluna for inválida, retorna false

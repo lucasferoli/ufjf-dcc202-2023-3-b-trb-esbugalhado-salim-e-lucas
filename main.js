@@ -1,12 +1,13 @@
 import {
     atualizaDado,
-    adicionaValor
+    adicionaValor,
+    imprimeTabuleiro
 } from './funcoes.js';
 
 function acaoJogador(coluna){
     let conseguiu = adicionaValor(colunasJogador, coluna, valor, caixasJogador);
     if(conseguiu){
-        
+        imprimeTabuleiro(tabuleiroJogador, colunasJogador);
     } else {
         //FIXME:
         //Colocar som ou alguma coisa para indicar que não conseguiu colocar
