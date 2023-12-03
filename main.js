@@ -8,3 +8,8 @@ const caixasJogador = document.querySelectorAll("#jogador .caixa");
 const tabuleiroInimigo = document.querySelectorAll("#inimigo .caixa img");
 const somaTextoInimigo = document.querySelectorAll("#somaInimigo .caixa p");
 const caixasInimigo = document.querySelectorAll("#inimigo .caixa");
+
+//Recebe elementos gerais do HTML
+const botoes = document.querySelectorAll("button.botao");
+const dadoImg = document.querySelector("img.dado")
+const vencedorTexto = document.querySelector("p.resultado");
