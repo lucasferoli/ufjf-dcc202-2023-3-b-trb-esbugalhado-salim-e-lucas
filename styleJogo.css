@@ -38,6 +38,12 @@
     margin: 5px;
     cursor: pointer;
 }
+div.final{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 .final div{
     display: flex;
     align-items: center;
