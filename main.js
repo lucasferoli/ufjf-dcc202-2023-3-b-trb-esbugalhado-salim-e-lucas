@@ -13,3 +13,18 @@ const caixasInimigo = document.querySelectorAll("#inimigo .caixa");
 const botoes = document.querySelectorAll("button.botao");
 const dadoImg = document.querySelector("img.dado")
 const vencedorTexto = document.querySelector("p.resultado");
+
+//Variáveis do jogo
+let colunasJogador = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+]
+let colunasInimigo = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+]
+let dadoValor = 0;
+let dadoInimigo = 0;
+let jogoTerminou = false;
