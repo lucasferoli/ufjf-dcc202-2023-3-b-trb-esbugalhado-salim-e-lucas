@@ -52,6 +52,9 @@ function acaoJogador(coluna){
         } else {
             //Troca o dado
             dadoValor = atualizaDado(dadoImg);
+            for(let i = 0; i < 3; i++){
+                botoes[i].disabled = true;
+            }
             //Chama ação do inimigo
             setTimeout(acaoInimigo, 1000);
         }
