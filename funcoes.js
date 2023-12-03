@@ -111,6 +111,21 @@ function verificaTerminarTabuleiro(tabuleiro){
     }
     return true;
 }
+function determinaVencedor(colunasJogador, colunasInimigo){
+    let jogador = 0;
+    let inimigo = 0;
+    for(let i = 0; i < 3; i++){
+        jogador += somaColuna(colunasJogador[i]);
+        inimigo += somaColuna(colunasInimigo[i]);
+    }
+    if(jogador > inimigo){
+        return "Jogador";
+    } else if(jogador < inimigo){
+        return "Inimigo";
+    } else {
+        return "Empate";
+    }
+}
 
 export {
     atualizaDado,
@@ -119,5 +134,6 @@ export {
     atualizaSoma,
     retiraValorDoTabuleiro,
     rolarDado,
-    verificaTerminarTabuleiro
+    verificaTerminarTabuleiro,
+    determinaVencedor
 }

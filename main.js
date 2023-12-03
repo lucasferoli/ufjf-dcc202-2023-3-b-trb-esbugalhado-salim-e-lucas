@@ -5,7 +5,8 @@ import {
     atualizaSoma,
     retiraValorDoTabuleiro,
     rolarDado,
-    verificaTerminarTabuleiro
+    verificaTerminarTabuleiro,
+    determinaVencedor
 } from './funcoes.js';
 
 function acaoJogador(coluna){
@@ -24,8 +25,8 @@ function acaoJogador(coluna){
 
         jogoTerminou = verificaTerminarTabuleiro(colunasJogador);
         if(jogoTerminou){
-            
-            
+            let vencedor = determinaVencedor(colunasJogador, colunasInimigo);
+            vencedorTexto.textContent = "Vencedor: " + vencedor;
         } else {
             //Troca o dado
             dadoValor = atualizaDado(dadoImg);
@@ -56,6 +57,12 @@ function acaoInimigo(){
     retiraValorDoTabuleiro(colunasJogador, coluna, dadoInimigo, caixasJogador);
     atualizaSoma(coluna, somaTextoJogador, colunasJogador);
     imprimeTabuleiro(tabuleiroJogador, colunasJogador);
+    
+    jogoTerminou = verificaTerminarTabuleiro(colunasJogador);
+    if(jogoTerminou){
+        let vencedor = determinaVencedor(colunasJogador, colunasInimigo);
+        vencedorTexto.textContent = "Vencedor: " + vencedor;
+    }
 }
 
 
