@@ -1,9 +1,17 @@
 import {
-    atualizaDado
+    atualizaDado,
+    adicionaValor
 } from './funcoes.js';
 
 function acaoJogador(coluna){
-    
+    let conseguiu = adicionaValor(colunasJogador, coluna, valor, caixasJogador);
+    if(conseguiu){
+        
+    } else {
+        //FIXME:
+        //Colocar som ou alguma coisa para indicar que não conseguiu colocar
+        console.log("Não conseguiu colocar");
+    }
 }
 
 

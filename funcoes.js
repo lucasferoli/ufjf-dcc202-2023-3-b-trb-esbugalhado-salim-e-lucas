@@ -54,5 +54,6 @@ function adicionaValor(tabuleiro, coluna, valor, caixas){
 
 export {
     atualizaDado,
-    imprimeTabuleiro
+    imprimeTabuleiro,
+    adicionaValor
 }
