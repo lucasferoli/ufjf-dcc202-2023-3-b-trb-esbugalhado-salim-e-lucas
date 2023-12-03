@@ -9,9 +9,12 @@ import {
 function acaoJogador(coluna){
     let conseguiu = adicionaValor(colunasJogador, coluna, dadoValor);
     if(conseguiu){
+        //Atualiza tabuleiro jogador
         imprimeTabuleiro(tabuleiroJogador, colunasJogador);
         atualizaSoma(coluna, somaTextoJogador, colunasJogador);
+        //Atualiza tabuleiro inimigo
         retiraValorDoTabuleiro(colunasInimigo, coluna, dadoValor);
+        atualizaSoma(coluna, somaTextoInimigo, colunasInimigo);
         dadoValor = atualizaDado(dadoImg);
     } else {
         //FIXME:
