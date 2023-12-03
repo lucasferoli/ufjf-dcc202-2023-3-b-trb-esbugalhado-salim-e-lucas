@@ -9,6 +9,27 @@ import {
     determinaVencedor
 } from './funcoes.js';
 
+function reiniciar(){
+    colunasJogador = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ]
+    colunasInimigo = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ]
+    for(let i = 0; i < 3; i++){
+        somaTextoJogador[i].textContent = 0;
+        somaTextoInimigo[i].textContent = 0;
+    }
+    vencedorTexto.textContent = "Vencedor: ";
+    imprimeTabuleiro(tabuleiroJogador, colunasJogador);
+    imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
+    dadoValor = atualizaDado(dadoImg);
+}
+
 function acaoJogador(coluna){
     if(jogoTerminou){
         return;
@@ -57,7 +78,7 @@ function acaoInimigo(){
     retiraValorDoTabuleiro(colunasJogador, coluna, dadoInimigo, caixasJogador);
     atualizaSoma(coluna, somaTextoJogador, colunasJogador);
     imprimeTabuleiro(tabuleiroJogador, colunasJogador);
-    
+
     jogoTerminou = verificaTerminarTabuleiro(colunasJogador);
     if(jogoTerminou){
         let vencedor = determinaVencedor(colunasJogador, colunasInimigo);
@@ -80,6 +101,7 @@ const caixasInimigo = document.querySelectorAll("#inimigo .caixa");
 const botoes = document.querySelectorAll("button.botao");
 const dadoImg = document.querySelector("img.dado")
 const vencedorTexto = document.querySelector("p.resultado");
+const reiniciarBotao = document.querySelector("button.reinicia");
 
 //Variáveis do jogo
 let colunasJogador = [
@@ -100,3 +122,4 @@ dadoValor = atualizaDado(dadoImg);
 for(let i = 0; i < 3; i++){
     botoes[i].addEventListener("click", () => acaoJogador(i));
 }
+reiniciarBotao.addEventListener("click", reiniciar);
