@@ -29,9 +29,6 @@ function reiniciar(){
     imprimeTabuleiro(tabuleiroJogador, colunasJogador);
     imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
     dadoValor = atualizaDado(dadoImg);
-    for(let i = 0; i < 3; i++){
-        botoes[i].disabled = false;
-    }
 }
 
 function acaoJogador(coluna){
@@ -90,6 +87,10 @@ function acaoInimigo(){
     if(jogoTerminou){
         let vencedor = determinaVencedor(colunasJogador, colunasInimigo);
         vencedorTexto.textContent = "Vencedor: " + vencedor;
+    } else {
+        for(let i = 0; i < 3; i++){
+            botoes[i].disabled = false;
+        }
     }
 }
 
