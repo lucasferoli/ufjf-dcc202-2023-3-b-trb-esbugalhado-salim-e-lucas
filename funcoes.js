@@ -35,7 +35,7 @@ function imprimeTabuleiro(tabuleiro, colunas){
     }
 }
 // Adiciona um valor na coluna do tabuleiro
-function adicionaValor(tabuleiro, coluna, valor){
+function adicionaValor(tabuleiro, coluna, valor, caixa){
     if(coluna < 0 || coluna > 2) {
         console.log("Coluna inválida");
         return false; // Se a coluna for inválida, retorna false
@@ -46,6 +46,7 @@ function adicionaValor(tabuleiro, coluna, valor){
     }
     if(linha <= 2 && linha >= 0){
         tabuleiro[coluna][linha] = valor;
+        caixa[coluna * 3 + linha].classList.add("colocar");
         return true;
     }
     console.log("Coluna cheia");

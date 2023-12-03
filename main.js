@@ -35,7 +35,7 @@ function acaoJogador(coluna){
     if(jogoTerminou){
         return;
     }
-    let conseguiu = adicionaValor(colunasJogador, coluna, dadoValor);
+    let conseguiu = adicionaValor(colunasJogador, coluna, dadoValor, caixasJogador);
     if(conseguiu){
         //Atualiza tabuleiro jogador
         imprimeTabuleiro(tabuleiroJogador, colunasJogador);
