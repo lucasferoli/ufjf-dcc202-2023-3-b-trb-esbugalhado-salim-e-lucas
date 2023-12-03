@@ -35,6 +35,23 @@ function imprimeTabuleiro(tabuleiro, colunas){
     }
 }
 
+function adicionaValor(tabuleiro, coluna, valor, caixas){
+    if(coluna < 0 || coluna > 2) {
+        console.log("Coluna inválida");
+        return false; // Se a coluna for inválida, retorna false
+    }
+    let linha = 0;
+    while(tabuleiro[coluna][linha] != 0 && linha < 3){
+        linha++;
+    }
+    if(linha <= 2 && linha >= 0){
+        tabuleiro[coluna][linha] = valor;
+        return true;
+    }
+    console.log("Coluna cheia");
+    return false;
+}
+
 export {
     atualizaDado,
     imprimeTabuleiro
