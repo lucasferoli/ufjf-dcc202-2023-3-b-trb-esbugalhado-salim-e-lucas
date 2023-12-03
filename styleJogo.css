@@ -38,3 +38,11 @@
     margin: 5px;
     cursor: pointer;
 }
+.final div{
+    display: flex;
+    align-items: center;
+    justify-self: space-around;
+}
+.final div p{
+    margin: 10px;
+}
