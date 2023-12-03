@@ -5,7 +5,7 @@ import {
 } from './funcoes.js';
 
 function acaoJogador(coluna){
-    let conseguiu = adicionaValor(colunasJogador, coluna, valor, caixasJogador);
+    let conseguiu = adicionaValor(colunasJogador, coluna, dadoValor, caixasJogador);
     if(conseguiu){
         imprimeTabuleiro(tabuleiroJogador, colunasJogador);
     } else {
