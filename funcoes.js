@@ -52,8 +52,30 @@ function adicionaValor(tabuleiro, coluna, valor){
     return false;
 }
 
+function quantasVezesApareceNaColuna(coluna, valor){
+    let vezes = 0;
+    for(let i = 0; i < 3; i++){
+        if(coluna[i] == valor){
+            vezes++;
+        }
+    }
+    return vezes;
+}
+function somaColuna(coluna){
+    let soma = 0;
+    for(let i = 0; i < 3; i++){
+        soma += coluna[i] * quantasVezesApareceNaColuna(coluna, coluna[i]);
+    }
+    return soma;
+}
+function atualizaSoma(indice, somaTexto, colunas){
+    let soma = somaColuna(colunas[indice]);
+    somaTexto[indice].textContent = soma;
+}
+
 export {
     atualizaDado,
     imprimeTabuleiro,
-    adicionaValor
+    adicionaValor,
+    atualizaSoma
 }
