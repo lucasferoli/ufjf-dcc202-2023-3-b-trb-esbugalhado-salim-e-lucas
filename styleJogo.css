@@ -4,3 +4,22 @@
     justify-content: center;
     align-items: center;
 }
+.tabuleiro{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 70px);
+    grid-template-rows: repeat(3, 1fr);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.caixa{
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 25px;
+    padding: 5px;
+    background-color: #cecece;
+}
