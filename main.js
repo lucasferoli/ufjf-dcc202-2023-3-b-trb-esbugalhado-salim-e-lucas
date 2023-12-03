@@ -24,6 +24,7 @@ function reiniciar(){
         somaTextoJogador[i].textContent = 0;
         somaTextoInimigo[i].textContent = 0;
     }
+    jogoTerminou = false;
     vencedorTexto.textContent = "Vencedor: ";
     imprimeTabuleiro(tabuleiroJogador, colunasJogador);
     imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
