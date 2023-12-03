@@ -14,3 +14,14 @@ function rolarDado(){
 function imagemDado(indice){
     return spritesDados[indice];
 }
+
+// atualiza o valor do dado no HTML
+function atualizaDado(dadoTexto){
+    let dadoValor = rolarDado();
+    dadoTexto.src = imagemDado(dadoValor - 1);
+    return dadoValor;
+}
+
+export {
+    atualizaDado
+}

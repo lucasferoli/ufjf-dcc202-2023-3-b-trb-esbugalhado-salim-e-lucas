@@ -1,4 +1,6 @@
-
+import {
+    atualizaDado
+} from './funcoes.js';
 //Recebe os elementos do HTML do jogador
 const tabuleiroJogador = document.querySelectorAll("#jogador .caixa img");
 const somaTextoJogador = document.querySelectorAll("#somaPlayer .caixa p");
@@ -28,3 +30,5 @@ let colunasInimigo = [
 let dadoValor = 0;
 let dadoInimigo = 0;
 let jogoTerminou = false;
+
+dadoValor = atualizaDado(dadoImg);
