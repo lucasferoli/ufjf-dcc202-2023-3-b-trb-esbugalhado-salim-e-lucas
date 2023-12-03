@@ -4,7 +4,8 @@ import {
     imprimeTabuleiro,
     atualizaSoma,
     retiraValorDoTabuleiro,
-    rolarDado
+    rolarDado,
+    verificaTerminarTabuleiro
 } from './funcoes.js';
 
 function acaoJogador(coluna){
@@ -17,10 +18,17 @@ function acaoJogador(coluna){
         retiraValorDoTabuleiro(colunasInimigo, coluna, dadoValor);
         atualizaSoma(coluna, somaTextoInimigo, colunasInimigo);
         imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
-        //Troca o dado
-        dadoValor = atualizaDado(dadoImg);
-        //Chama ação do inimigo
-        acaoInimigo();
+
+        jogoTerminou = verificaTerminarTabuleiro(colunasJogador);
+        if(jogoTerminou){
+            
+            
+        } else {
+            //Troca o dado
+            dadoValor = atualizaDado(dadoImg);
+            //Chama ação do inimigo
+            acaoInimigo();
+        }
     } else {
         //FIXME:
         //Colocar som ou alguma coisa para indicar que não conseguiu colocar

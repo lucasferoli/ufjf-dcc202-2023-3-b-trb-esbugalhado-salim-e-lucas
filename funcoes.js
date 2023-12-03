@@ -101,6 +101,16 @@ function retiraValorDoTabuleiro(colunas, coluna, valor){
     }
     return;
 }
+function verificaTerminarTabuleiro(tabuleiro){
+    for(let i = 0; i < 3; i++){
+        for(let j = 0; j < 3; j++){
+            if(tabuleiro[i][j] == 0){
+                return false;
+            }
+        }
+    }
+    return true;
+}
 
 export {
     atualizaDado,
@@ -108,5 +118,6 @@ export {
     adicionaValor,
     atualizaSoma,
     retiraValorDoTabuleiro,
-    rolarDado
+    rolarDado,
+    verificaTerminarTabuleiro
 }
