@@ -44,7 +44,7 @@ function acaoJogador(coluna){
         retiraValorDoTabuleiro(colunasInimigo, coluna, dadoValor);
         atualizaSoma(coluna, somaTextoInimigo, colunasInimigo);
         imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
-
+        
         jogoTerminou = verificaTerminarTabuleiro(colunasJogador);
         if(jogoTerminou){
             let vencedor = determinaVencedor(colunasJogador, colunasInimigo);
@@ -53,7 +53,7 @@ function acaoJogador(coluna){
             //Troca o dado
             dadoValor = atualizaDado(dadoImg);
             //Chama ação do inimigo
-            acaoInimigo();
+            setTimeout(acaoInimigo(), 1000);
         }
     } else {
         //FIXME:
