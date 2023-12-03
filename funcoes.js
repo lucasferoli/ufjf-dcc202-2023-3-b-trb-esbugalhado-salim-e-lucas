@@ -93,6 +93,12 @@ function retiraValorDoTabuleiro(colunas, coluna, valor){
             colunas[coluna][i] = 0;
         }
     }
+    for(let i = 1; i < 3; i++){
+        if(colunas[coluna][i-1] == 0){
+            colunas[coluna][i - 1] = colunas[coluna][i];
+            colunas[coluna][i] = 0;
+        }
+    }
     return;
 }
 
