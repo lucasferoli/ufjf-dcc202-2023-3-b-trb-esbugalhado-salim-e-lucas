@@ -10,6 +10,7 @@ function acaoJogador(coluna){
     if(conseguiu){
         imprimeTabuleiro(tabuleiroJogador, colunasJogador);
         atualizaSoma(coluna, somaTextoJogador, colunasJogador);
+        dadoValor = atualizaDado(dadoImg);
     } else {
         //FIXME:
         //Colocar som ou alguma coisa para indicar que não conseguiu colocar
