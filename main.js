@@ -9,6 +9,9 @@ import {
 } from './funcoes.js';
 
 function acaoJogador(coluna){
+    if(jogoTerminou){
+        return;
+    }
     let conseguiu = adicionaValor(colunasJogador, coluna, dadoValor);
     if(conseguiu){
         //Atualiza tabuleiro jogador
@@ -36,6 +39,9 @@ function acaoJogador(coluna){
     }
 }
 function acaoInimigo(){
+    if(jogoTerminou){
+        return;
+    }
     dadoInimigo = rolarDado();
     let coluna = Math.floor(Math.random() * 3);
     let conseguiu = adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
