@@ -52,3 +52,13 @@ div.final{
 .final div p{
     margin: 10px;
 }
+
+@keyframes colocaPeca {
+    0% {background-color: #cecece;}
+    50% {background-color: rgb(121, 121, 121);}
+    100% {background-color: #cecece;}
+}
+
+.colocar {
+    animation: colocaPeca 0.5s;
+}
