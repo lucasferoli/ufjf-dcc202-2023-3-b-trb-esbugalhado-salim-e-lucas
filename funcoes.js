@@ -47,11 +47,16 @@ function adicionaValor(tabuleiro, coluna, valor, caixa){
     if(linha <= 2 && linha >= 0){
         tabuleiro[coluna][linha] = valor;
         caixa[coluna * 3 + linha].classList.add("colocar");
+        setTimeout(() => reiniciaAnimacao(caixa[coluna * 3 + linha]), 500);
         return true;
     }
     console.log("Coluna cheia");
     return false;
 }
+function reiniciaAnimacao(caixa){
+    caixa.classList.remove("colocar");
+}
+
 // Retorna quantas vezes um valor aparece na coluna
 function quantasVezesApareceNaColuna(coluna, valor){
     let vezes = 0;
