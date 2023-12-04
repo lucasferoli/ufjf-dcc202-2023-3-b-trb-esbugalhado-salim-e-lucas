@@ -50,7 +50,7 @@ function acaoJogador(coluna){
         //Atualiza tabuleiro inimigo
         retiraValorDoTabuleiro(colunasInimigo, coluna, dadoValor, caixasInimigo);
         atualizaSoma(coluna, somaTextoInimigo, colunasInimigo);
-        
+        //Espera um tempo para atualizar o tabuleiro do inimigo
         setTimeout(() => imprimeTabuleiro(tabuleiroInimigo, colunasInimigo), 500);
         
         jogoTerminou = verificaTerminarTabuleiro(colunasJogador);
@@ -60,6 +60,7 @@ function acaoJogador(coluna){
         } else {
             //Troca o dado
             dadoValor = atualizaDado(dadoImg);
+            //Desativa os botões para evitar que o jogador coloque mais de uma vez antes do inimigo
             for(let i = 0; i < 3; i++){
                 botoes[i].disabled = true;
             }
@@ -90,14 +91,15 @@ function acaoInimigo(){
     //Atualiza tabuleiro jogador
     retiraValorDoTabuleiro(colunasJogador, coluna, dadoInimigo, caixasJogador);
     atualizaSoma(coluna, somaTextoJogador, colunasJogador);
-    
+    //Espera um tempo para atualizar o tabuleiro do jogador
     setTimeout(() => imprimeTabuleiro(tabuleiroJogador, colunasJogador), 500);
-
+    //Verifica se o jogo terminou.
     jogoTerminou = verificaTerminarTabuleiro(colunasInimigo);
     if(jogoTerminou){
         let vencedor = determinaVencedor(colunasJogador, colunasInimigo);
         vencedorTexto.textContent = "Vencedor: " + vencedor;
     } else {
+        //Reativa os botões
         for(let i = 0; i < 3; i++){
             botoes[i].disabled = false;
         }
