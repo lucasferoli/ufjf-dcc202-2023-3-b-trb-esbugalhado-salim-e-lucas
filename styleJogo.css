@@ -4,6 +4,16 @@
     justify-content: space-around;
     align-items: center;
 }
+.centralizar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.centralizar p{
+    margin: 10;
+    font-size: 25px;
+}
 .colunaPrincipal{
     display: flex;
     flex-direction: column;
