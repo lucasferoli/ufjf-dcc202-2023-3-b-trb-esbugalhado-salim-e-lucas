@@ -32,6 +32,9 @@ function reiniciar(){
     imprimeTabuleiro(tabuleiroJogador, colunasJogador);
     imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
     dadoValor = atualizaDado(dadoImg);
+    for(let i = 0; i < 3; i++){
+        botoes[i].disabled = false;
+    }
 }
 
 function acaoJogador(coluna){
