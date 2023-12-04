@@ -62,3 +62,12 @@ div.final{
 .colocar {
     animation: colocaPeca 0.5s;
 }
+
+@keyframes retiraPeca {
+    0% {background-color: #cecece;}
+    50% {background-color: #dd6161;}
+    100% {background-color: #cecece;}
+}
+.retirar{
+    animation: retiraPeca 0.5s;
+}

@@ -47,13 +47,13 @@ function adicionaValor(tabuleiro, coluna, valor, caixa){
     if(linha <= 2 && linha >= 0){
         tabuleiro[coluna][linha] = valor;
         caixa[coluna * 3 + linha].classList.add("colocar");
-        setTimeout(() => reiniciaAnimacao(caixa[coluna * 3 + linha]), 500);
+        setTimeout(() => reiniciaAnimacaoColocar(caixa[coluna * 3 + linha]), 500);
         return true;
     }
     console.log("Coluna cheia");
     return false;
 }
-function reiniciaAnimacao(caixa){
+function reiniciaAnimacaoColocar(caixa){
     caixa.classList.remove("colocar");
 }
 
@@ -81,7 +81,7 @@ function atualizaSoma(indice, somaTexto, colunas){
     somaTexto[indice].textContent = soma;
 }
 
-function retiraValorDoTabuleiro(colunas, coluna, valor){
+function retiraValorDoTabuleiro(colunas, coluna, valor, caixa){
     if(coluna < 0 || coluna > 2) {
         console.log("Coluna inválida");
         return;
@@ -89,6 +89,8 @@ function retiraValorDoTabuleiro(colunas, coluna, valor){
     for(let i = 0; i < 3; i++){
         if(colunas[coluna][i] == valor){
             colunas[coluna][i] = 0;
+            caixa[coluna * 3 + i].classList.add("retirar");
+            setTimeout(() => reiniciaAnimacaoRetirar(caixa[coluna * 3 + i]), 500);
         }
     }
     //Corrige posição dos valores
@@ -107,6 +109,10 @@ function retiraValorDoTabuleiro(colunas, coluna, valor){
     }
     return;
 }
+function reiniciaAnimacaoRetirar(caixa){
+    caixa.classList.remove("retirar");
+}
+
 function verificaTerminarTabuleiro(tabuleiro){
     for(let i = 0; i < 3; i++){
         for(let j = 0; j < 3; j++){

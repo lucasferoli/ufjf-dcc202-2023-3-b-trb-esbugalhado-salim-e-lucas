@@ -47,9 +47,10 @@ function acaoJogador(coluna){
         imprimeTabuleiro(tabuleiroJogador, colunasJogador);
         atualizaSoma(coluna, somaTextoJogador, colunasJogador);
         //Atualiza tabuleiro inimigo
-        retiraValorDoTabuleiro(colunasInimigo, coluna, dadoValor);
+        retiraValorDoTabuleiro(colunasInimigo, coluna, dadoValor, caixasInimigo);
         atualizaSoma(coluna, somaTextoInimigo, colunasInimigo);
-        imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
+        
+        setTimeout(() => imprimeTabuleiro(tabuleiroInimigo, colunasInimigo), 500);
         
         jogoTerminou = verificaTerminarTabuleiro(colunasJogador);
         if(jogoTerminou){
