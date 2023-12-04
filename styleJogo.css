@@ -1,3 +1,9 @@
+.paiMestre{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
 .colunaPrincipal{
     display: flex;
     flex-direction: column;
