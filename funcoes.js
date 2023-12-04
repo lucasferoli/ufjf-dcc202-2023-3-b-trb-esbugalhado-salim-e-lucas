@@ -80,7 +80,7 @@ function atualizaSoma(indice, somaTexto, colunas){
     let soma = somaColuna(colunas[indice]);
     somaTexto[indice].textContent = soma;
 }
-
+// Retira valor do tabuleiro
 function retiraValorDoTabuleiro(colunas, coluna, valor, caixa){
     if(coluna < 0 || coluna > 2) {
         console.log("Coluna inválida");
@@ -109,10 +109,11 @@ function retiraValorDoTabuleiro(colunas, coluna, valor, caixa){
     }
     return;
 }
+// Reinicia animação, permitindo chamar novamente.
 function reiniciaAnimacaoRetirar(caixa){
     caixa.classList.remove("retirar");
 }
-
+//Verifica se o tabuleiro está completo. 
 function verificaTerminarTabuleiro(tabuleiro){
     for(let i = 0; i < 3; i++){
         for(let j = 0; j < 3; j++){
@@ -123,6 +124,7 @@ function verificaTerminarTabuleiro(tabuleiro){
     }
     return true;
 }
+//Determina o vencedor
 function determinaVencedor(colunasJogador, colunasInimigo){
     let jogador = 0;
     let inimigo = 0;

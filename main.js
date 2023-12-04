@@ -9,6 +9,7 @@ import {
     determinaVencedor
 } from './funcoes.js';
 
+//Reinicia o jogo do 0. 
 function reiniciar(){
     if(timeoutInimigo){
         clearTimeout(timeoutInimigo);
@@ -36,7 +37,7 @@ function reiniciar(){
         botoes[i].disabled = false;
     }
 }
-
+//Faz a ação do jogador
 function acaoJogador(coluna){
     if(jogoTerminou){
         return;
@@ -71,6 +72,7 @@ function acaoJogador(coluna){
         console.log("Não conseguiu colocar");
     }
 }
+//Faz a ação do inimigo
 function acaoInimigo(){
     if(jogoTerminou){
         return;
@@ -135,7 +137,9 @@ let dadoInimigo = 0;
 let jogoTerminou = false;
 let timeoutInimigo;
 
+//Inicia o jogo
 dadoValor = atualizaDado(dadoImg);
+//Para cada botão, passa a função com o parâmetro da coluna
 for(let i = 0; i < 3; i++){
     botoes[i].addEventListener("click", () => acaoJogador(i));
 }
