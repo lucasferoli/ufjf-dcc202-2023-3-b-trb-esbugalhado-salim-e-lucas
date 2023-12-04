@@ -89,7 +89,7 @@ function acaoInimigo(){
     atualizaSoma(coluna, somaTextoJogador, colunasJogador);
     imprimeTabuleiro(tabuleiroJogador, colunasJogador);
 
-    jogoTerminou = verificaTerminarTabuleiro(colunasJogador);
+    jogoTerminou = verificaTerminarTabuleiro(colunasInimigo);
     if(jogoTerminou){
         let vencedor = determinaVencedor(colunasJogador, colunasInimigo);
         vencedorTexto.textContent = "Vencedor: " + vencedor;
