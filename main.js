@@ -10,6 +10,9 @@ import {
 } from './funcoes.js';
 
 function reiniciar(){
+    if(timeoutInimigo){
+        clearTimeout(timeoutInimigo);
+    }
     colunasJogador = [
         [0, 0, 0],
         [0, 0, 0],
@@ -56,7 +59,7 @@ function acaoJogador(coluna){
                 botoes[i].disabled = true;
             }
             //Chama ação do inimigo
-            setTimeout(acaoInimigo, 1000);
+            timeoutInimigo = setTimeout(acaoInimigo, 1000);
         }
     } else {
         //FIXME:
@@ -125,6 +128,7 @@ let colunasInimigo = [
 let dadoValor = 0;
 let dadoInimigo = 0;
 let jogoTerminou = false;
+let timeoutInimigo;
 
 dadoValor = atualizaDado(dadoImg);
 for(let i = 0; i < 3; i++){
