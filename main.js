@@ -88,7 +88,8 @@ function acaoInimigo(){
     //Atualiza tabuleiro jogador
     retiraValorDoTabuleiro(colunasJogador, coluna, dadoInimigo, caixasJogador);
     atualizaSoma(coluna, somaTextoJogador, colunasJogador);
-    imprimeTabuleiro(tabuleiroJogador, colunasJogador);
+    
+    setTimeout(() => imprimeTabuleiro(tabuleiroJogador, colunasJogador), 500);
 
     jogoTerminou = verificaTerminarTabuleiro(colunasInimigo);
     if(jogoTerminou){
