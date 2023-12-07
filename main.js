@@ -9,6 +9,11 @@ import {
     determinaVencedor
 } from './funcoes.js';
 
+import {
+    colunaBom,
+    colunaMal
+} from './inimigo.js';
+
 //Reinicia o jogo do 0. 
 function reiniciar(){
     if(timeoutInimigo){
@@ -79,12 +84,18 @@ function acaoInimigo(){
         return;
     }
     dadoInimigo = rolarDado();
+
+    //Escolhe a coluna de forma aleatória
+    /*
     let coluna = Math.floor(Math.random() * 3);
     let conseguiu = adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
     while(!conseguiu){
         coluna = Math.floor(Math.random() * 3);
         conseguiu = adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
-    }
+    }*/
+    let coluna = colunaMal(colunasInimigo, colunasJogador, dadoInimigo);
+    adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
+
     //Atualiza tabuleiro inimigo
     imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
     atualizaSoma(coluna, somaTextoInimigo, colunasInimigo);
