@@ -1,7 +1,3 @@
-import {
-    rolarDado,
-} from './funcoes.js';
-
 //Funções sobre as jogadas do inimigo
 
 //Função verifica qual a jogada que mais prejudica o jogador
@@ -52,6 +48,8 @@ function ordenaIndices(coluna){
     return maior;
 }
 
+
+//FIXME: Não está funcionando corretamente
 function colunaBom(colunaInimigo, dadoInimigo){
     let qtd = [0, 0, 0];
     for(let i = 0; i < 3; i++){
