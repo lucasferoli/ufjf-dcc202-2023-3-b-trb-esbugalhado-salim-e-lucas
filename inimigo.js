@@ -15,6 +15,15 @@ function colunaMal(colunaInimigo, colunaJogador, dadoInimigo){
             }
         }
     }
+    //Se não há jogada para prejudicar o jogador, faz aleatória
+    if(qtd[0] == 0 && qtd[1] == 0 && qtd[2] == 0){
+        let coluna = Math.floor(Math.random() * 3);
+        while(colunaInimigo[coluna][2] != 0){
+            coluna = Math.floor(Math.random() * 3);
+        }
+        return coluna;
+    }
+
     //Escolhe a coluna que tem mais vezes o dado e que não está cheia
     let maior = ordenaIndices(qtd);
     for(let i = 0; i < 3; i++){
@@ -22,8 +31,10 @@ function colunaMal(colunaInimigo, colunaJogador, dadoInimigo){
             return maior[i];
         }
     }
+    return 0;
 }
 
+//Função que ordena os índices de um vetor de forma decrescente
 function ordenaIndices(coluna){
     let maior = [0, 1, 2];
     let ordenado = false;
@@ -50,14 +61,14 @@ function colunaBom(colunaInimigo, dadoInimigo){
             }
         }
     }
-    
-    let maiores = 0;
-    for(let i = 1; i < 3; i++){
-        if(qtd[i] > qtd[maior] && colunaInimigo[i][2] == 0){
-            maior = i;
+    let maior = ordenaIndices(qtd);
+
+    for(let i = 0; i < 3; i++){
+        if(colunaInimigo[maior[i]][2] == 0){
+            return maior[i];
         }
     }
-    return maior;
+    return 0;
 }
 
 export {colunaBom, colunaMal};

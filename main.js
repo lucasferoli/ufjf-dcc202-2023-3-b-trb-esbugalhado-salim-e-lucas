@@ -93,7 +93,7 @@ function acaoInimigo(){
         coluna = Math.floor(Math.random() * 3);
         conseguiu = adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
     }*/
-    let coluna = colunaMal(colunasInimigo, colunasJogador, dadoInimigo);
+    let coluna = colunaBom(colunasInimigo, colunasJogador, dadoInimigo);
     adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
 
     //Atualiza tabuleiro inimigo
