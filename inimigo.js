@@ -61,6 +61,14 @@ function colunaBom(colunaInimigo, dadoInimigo){
             }
         }
     }
+    if(qtd[0] == 0 && qtd[1] == 0 && qtd[2] == 0){
+        let coluna = Math.floor(Math.random() * 3);
+        while(colunaInimigo[coluna][2] != 0){
+            coluna = Math.floor(Math.random() * 3);
+        }
+        return coluna;
+    }
+
     let maior = ordenaIndices(qtd);
 
     for(let i = 0; i < 3; i++){
