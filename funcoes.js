@@ -187,20 +187,20 @@ function verificaTerminarTabuleiro(tabuleiro){
     return true;
 }
 //Determina o vencedor
-function determinaVencedor(colunasJogador, colunasInimigo){
+function determinaVencedor(){
     let jogador = 0;
     let inimigo = 0;
     for(let i = 0; i < 3; i++){
         jogador += somaColuna(colunasJogador[i]);
         inimigo += somaColuna(colunasInimigo[i]);
     }
+    let vencedor = "Empate";
     if(jogador > inimigo){
-        return "Jogador";
+        vencedor = "Jogador";
     } else if(jogador < inimigo){
-        return "Inimigo";
-    } else {
-        return "Empate";
-    }
+        vencedor = "Inimigo";
+    } 
+    vencedorTexto.textContent = "Vencedor: " + vencedor;
 }
 
 //#region funções ativas (Chamam as outras funções para o jogo funcionar)
@@ -221,8 +221,7 @@ function acaoJogador(coluna){
         
         jogoTerminou = verificaTerminarTabuleiro(colunasJogador);
         if(jogoTerminou){
-            let vencedor = determinaVencedor(colunasJogador, colunasInimigo);
-            vencedorTexto.textContent = "Vencedor: " + vencedor;
+            determinaVencedor();
         } else {
             //Troca o dado
             atualizaDado();
@@ -270,8 +269,7 @@ function acaoInimigo(){
     //Verifica se o jogo terminou.
     jogoTerminou = verificaTerminarTabuleiro(colunasInimigo);
     if(jogoTerminou){
-        let vencedor = determinaVencedor(colunasJogador, colunasInimigo);
-        vencedorTexto.textContent = "Vencedor: " + vencedor;
+        determinaVencedor();
     } else {
         //Reativa os botões
         for(let i = 0; i < botoes.length; i++){
