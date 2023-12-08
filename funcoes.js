@@ -1,3 +1,4 @@
+//Sprites dos dados
 const spritesDados = [
     'Sprites/dado1.png',
     'Sprites/dado2.png',
@@ -6,9 +7,69 @@ const spritesDados = [
     'Sprites/dado5.png',
     'Sprites/dado6.png'
 ]
+//Variáveis do jogo e funções set
+let colunasJogador = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+];
+let colunasInimigo = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+]
+let dadoValor = 0;
+let dadoInimigo = 0;
+let jogoTerminou = false;
+let timeoutInimigo;
+
+// #region Funções set e variáveis
+//Recebe os elementos do HTML do jogador
+let tabuleiroJogador;
+function setTabuleiroJogador(tabuleiro){
+    tabuleiroJogador = tabuleiro;
+}
+let somaTextoJogador;
+function setSomaTextoJogador(texto){
+    somaTextoJogador = texto;
+}
+let caixasJogador;
+function setCaixasJogador(caixas){
+    caixasJogador = caixas;
+}
+//Recebe os elementos do HTML do inimigo
+let tabuleiroInimigo;
+function setTabuleiroInimigo(tabuleiro){
+    tabuleiroInimigo = tabuleiro;
+}
+let somaTextoInimigo;
+function setSomaTextoInimigo(texto){
+    somaTextoInimigo = texto;
+}
+let caixasInimigo;
+function setCaixasInimigo(caixas){
+    caixasInimigo = caixas;
+}
+//Recebe elementos gerais do HTML
+let botoes;
+function setBotoes(bts){
+    botoes = bts;
+}
+let dadoImg;
+function setDadoImg(img){
+    dadoImg = img;
+}
+let vencedorTexto;
+function setVencedorTexto(texto){
+    vencedorTexto = texto;
+}
+function setReiniciarBotao(botao){
+    botao.addEventListener("click", reiniciar);
+}
+//#endregion
 
 //Retorna um número aleatório entre 1 e 6
-function rolarDado(){
+function numeroDado(){
     return Math.floor(Math.random() * 6) + 1;
 }
 // Retorna o caminho da imagem do dado
@@ -16,11 +77,11 @@ function imagemDado(indice){
     return spritesDados[indice];
 }
 // atualiza o valor do dado no HTML
-function atualizaDado(dadoTexto){
-    let dadoValor = rolarDado();
-    dadoTexto.src = imagemDado(dadoValor - 1);
-    return dadoValor;
+function atualizaDado(){
+    dadoValor = numeroDado();
+    dadoImg.src = imagemDado(dadoValor - 1);
 }
+
 // Imprime o tabuleiro no HTML
 function imprimeTabuleiro(tabuleiro, colunas){
     for(let i = 0; i < 3; i++){
@@ -34,6 +95,7 @@ function imprimeTabuleiro(tabuleiro, colunas){
         }
     }
 }
+
 // Adiciona um valor na coluna do tabuleiro
 function adicionaValor(tabuleiro, coluna, valor, caixa){
     if(coluna < 0 || coluna > 2) {
@@ -141,13 +203,128 @@ function determinaVencedor(colunasJogador, colunasInimigo){
     }
 }
 
+//#region funções ativas (Chamam as outras funções para o jogo funcionar)
+function acaoJogador(coluna){
+    if(jogoTerminou){
+        return;
+    }
+    let conseguiu = adicionaValor(colunasJogador, coluna, dadoValor, caixasJogador);
+    if(conseguiu){
+        //Atualiza tabuleiro jogador
+        imprimeTabuleiro(tabuleiroJogador, colunasJogador);
+        atualizaSoma(coluna, somaTextoJogador, colunasJogador);
+        //Atualiza tabuleiro inimigo
+        retiraValorDoTabuleiro(colunasInimigo, coluna, dadoValor, caixasInimigo);
+        atualizaSoma(coluna, somaTextoInimigo, colunasInimigo);
+        //Espera um tempo para atualizar o tabuleiro do inimigo
+        setTimeout(() => imprimeTabuleiro(tabuleiroInimigo, colunasInimigo), 500);
+        
+        jogoTerminou = verificaTerminarTabuleiro(colunasJogador);
+        if(jogoTerminou){
+            let vencedor = determinaVencedor(colunasJogador, colunasInimigo);
+            vencedorTexto.textContent = "Vencedor: " + vencedor;
+        } else {
+            //Troca o dado
+            atualizaDado();
+            //Desativa os botões para evitar que o jogador coloque mais de uma vez antes do inimigo
+            for(let i = 0; i < 3; i++){
+                botoes[i].disabled = true;
+            }
+            //Chama ação do inimigo
+            timeoutInimigo = setTimeout(acaoInimigo, 1000);
+        }
+    } else {
+        //FIXME:
+        //Colocar som ou alguma coisa para indicar que não conseguiu colocar
+        console.log("Não conseguiu colocar");
+    }
+}
+function acaoInimigo(){
+    if(jogoTerminou){
+        return;
+    }
+    dadoInimigo = numeroDado();
+
+    //Escolhe a coluna de forma aleatória
+    
+    let coluna = Math.floor(Math.random() * 3);
+    let conseguiu = adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
+    while(!conseguiu){
+        coluna = Math.floor(Math.random() * 3);
+        conseguiu = adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
+    }
+
+    //Escolhe a coluna conforme as funções do inimigo
+    /* Comentado para testar outras funcionalidades
+    let coluna = colunaBom(colunasInimigo, colunasJogador, dadoInimigo);
+    adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);*/
+
+    //Atualiza tabuleiro inimigo
+    imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
+    atualizaSoma(coluna, somaTextoInimigo, colunasInimigo);
+    //Atualiza tabuleiro jogador
+    retiraValorDoTabuleiro(colunasJogador, coluna, dadoInimigo, caixasJogador);
+    atualizaSoma(coluna, somaTextoJogador, colunasJogador);
+    //Espera um tempo para atualizar o tabuleiro do jogador
+    setTimeout(() => imprimeTabuleiro(tabuleiroJogador, colunasJogador), 500);
+    //Verifica se o jogo terminou.
+    jogoTerminou = verificaTerminarTabuleiro(colunasInimigo);
+    if(jogoTerminou){
+        let vencedor = determinaVencedor(colunasJogador, colunasInimigo);
+        vencedorTexto.textContent = "Vencedor: " + vencedor;
+    } else {
+        //Reativa os botões
+        for(let i = 0; i < botoes.length; i++){
+            botoes[i].disabled = false;
+        }
+    }
+}
+function reiniciar(){
+    if(timeoutInimigo){
+        clearTimeout(timeoutInimigo);
+    }
+    colunasJogador = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ]
+    colunasInimigo = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ]
+    for(let i = 0; i < 3; i++){
+        somaTextoJogador[i].textContent = 0;
+        somaTextoInimigo[i].textContent = 0;
+    }
+    jogoTerminou = false;
+    vencedorTexto.textContent = "Vencedor: ";
+    imprimeTabuleiro(tabuleiroJogador, colunasJogador);
+    imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
+    atualizaDado();
+    for(let i = 0; i < 3; i++){
+        botoes[i].disabled = false;
+    }
+}
+//#endregion
+
 export {
     atualizaDado,
-    imprimeTabuleiro,
     adicionaValor,
     atualizaSoma,
     retiraValorDoTabuleiro,
-    rolarDado,
     verificaTerminarTabuleiro,
-    determinaVencedor
+    determinaVencedor,
+    setTabuleiroJogador,
+    setSomaTextoJogador,
+    setCaixasJogador,
+    setTabuleiroInimigo,
+    setSomaTextoInimigo,
+    setCaixasInimigo,
+    setBotoes,
+    setDadoImg,
+    setVencedorTexto,
+    setReiniciarBotao,
+    acaoInimigo,
+    acaoJogador
 }
