@@ -25,25 +25,56 @@ let timeoutInimigo;
 
 //Recebe os elementos do HTML do jogador
 let tabuleiroJogador;
+function setTabuleiroJogador(tabuleiro){
+    tabuleiroJogador = tabuleiro;
+}
 let somaTextoJogador;
+function setSomaTextoJogador(texto){
+    somaTextoJogador = texto;
+}
 let caixasJogador;
+function setCaixasJogador(caixas){
+    caixasJogador = caixas;
+}
 
 //Recebe os elementos do HTML do inimigo
 let tabuleiroInimigo;
+function setTabuleiroInimigo(tabuleiro){
+    tabuleiroInimigo = tabuleiro;
+}
 let somaTextoInimigo;
+function setSomaTextoInimigo(texto){
+    somaTextoInimigo = texto;
+}
+
 let caixasInimigo;
+function setCaixasInimigo(caixas){
+    caixasInimigo = caixas;
+}
 
 //Recebe elementos gerais do HTML
 let botoes;
+function setBotoes(bts){
+    botoes = bts;
+}
 let dadoImg;
+function setDadoImg(img){
+    dadoImg = img;
+}
 let vencedorTexto;
+function setVencedorTexto(texto){
+    vencedorTexto = texto;
+}
 let reiniciarBotao;
+function setReiniciarBotao(botao){
+    reiniciarBotao = botao;
+}
 
 
 
 
 //Retorna um número aleatório entre 1 e 6
-function rolarDado(){
+function numeroDado(){
     return Math.floor(Math.random() * 6) + 1;
 }
 // Retorna o caminho da imagem do dado
@@ -51,10 +82,9 @@ function imagemDado(indice){
     return spritesDados[indice];
 }
 // atualiza o valor do dado no HTML
-function atualizaDado(dadoTexto){
-    let dadoValor = rolarDado();
-    dadoTexto.src = imagemDado(dadoValor - 1);
-    return dadoValor;
+function atualizaDado(){
+    dadoValor = numeroDado();
+    dadoImg.src = imagemDado(dadoValor - 1);
 }
 // Imprime o tabuleiro no HTML
 function imprimeTabuleiro(tabuleiro, colunas){
@@ -182,7 +212,17 @@ export {
     adicionaValor,
     atualizaSoma,
     retiraValorDoTabuleiro,
-    rolarDado,
+    numeroDado,
     verificaTerminarTabuleiro,
-    determinaVencedor
+    determinaVencedor,
+    setTabuleiroJogador,
+    setSomaTextoJogador,
+    setCaixasJogador,
+    setTabuleiroInimigo,
+    setSomaTextoInimigo,
+    setCaixasInimigo,
+    setBotoes,
+    setDadoImg,
+    setVencedorTexto,
+    setReiniciarBotao
 }
