@@ -319,6 +319,10 @@ function reiniciar(){
         [0, 0, 0],
         [0, 0, 0]
     ]
+    somaTotalInimigo = 0;
+    somaTotalJogador = 0;
+    somaJogador = [0, 0, 0];
+    somaInimigo = [0, 0, 0];
     for(let i = 0; i < 3; i++){
         somaTextoJogador[i].textContent = 0;
         somaTextoInimigo[i].textContent = 0;
@@ -327,6 +331,8 @@ function reiniciar(){
     vencedorTexto.textContent = "Vencedor: ";
     imprimeTabuleiro(tabuleiroJogador, colunasJogador);
     imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
+    somaTotalTextoInimigo.textContent = 0;
+    somaTotalTextoJogador.textContent = 0;
     atualizaDado();
     for(let i = 0; i < 3; i++){
         botoes[i].disabled = false;
