@@ -1,5 +1,12 @@
 //Funções sobre as jogadas do inimigo
-
+function colunaValida(coluna){
+    for(let i = 0; i < 3; i++){
+        if(coluna[i] == 0){
+            return true;
+        }
+    }
+    return false;
+}
 //Função verifica qual a jogada que mais prejudica o jogador
 function colunaMal(colunaInimigo, colunaJogador, dadoInimigo){
     //Conta a quantidade de vezes que o dado aparece na coluna do jogador
@@ -11,10 +18,11 @@ function colunaMal(colunaInimigo, colunaJogador, dadoInimigo){
             }
         }
     }
+    
     //Se não há jogada para prejudicar o jogador, faz aleatória
-    if(qtd[0] == 0 && qtd[1] == 0 && qtd[2] == 0){
+    if(qtd[0] === 0 && qtd[1] === 0 && qtd[2] === 0){
         let coluna = Math.floor(Math.random() * 3);
-        while(colunaInimigo[coluna][2] != 0){
+        while(!colunaValida(colunaInimigo[coluna])){
             coluna = Math.floor(Math.random() * 3);
         }
         return coluna;
@@ -23,10 +31,11 @@ function colunaMal(colunaInimigo, colunaJogador, dadoInimigo){
     //Escolhe a coluna que tem mais vezes o dado e que não está cheia
     let maior = ordenaIndices(qtd);
     for(let i = 0; i < 3; i++){
-        if(colunaInimigo[maior[i]][2] == 0){
+        if(colunaValida(colunaInimigo[maior[i]])){
             return maior[i];
         }
     }
+    console.log("Erro na escolha de coluna do inimigo");
     return 0;
 }
 
