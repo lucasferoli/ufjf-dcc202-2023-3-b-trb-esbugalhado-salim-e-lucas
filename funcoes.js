@@ -193,14 +193,19 @@ function verificaTerminarTabuleiro(tabuleiro){
     }
     return true;
 }
+
+function somaTotalPontos(valores){
+    let pontos = 0;
+    for(let i = 0; i < 3; i++){
+        pontos += valores[i];
+    }
+    return pontos;
+}
 //Determina o vencedor
 function determinaVencedor(){
-    let jogador = 0;
-    let inimigo = 0;
-    for(let i = 0; i < 3; i++){
-        jogador += somaColuna(colunasJogador[i]);
-        inimigo += somaColuna(colunasInimigo[i]);
-    }
+    let jogador = somaTotalJogador;
+    let inimigo = somaTotalInimigo;
+
     let vencedor = "Empate";
     if(jogador > inimigo){
         vencedor = "Jogador";
@@ -220,9 +225,12 @@ function acaoJogador(coluna){
         //Atualiza tabuleiro jogador
         imprimeTabuleiro(tabuleiroJogador, colunasJogador);
         atualizaSoma(coluna, somaTextoJogador, colunasJogador, somaJogador);
+        somaTotalJogador = somaTotalPontos(somaJogador);
         //Atualiza tabuleiro inimigo
         retiraValorDoTabuleiro(colunasInimigo, coluna, dadoValor, caixasInimigo);
         atualizaSoma(coluna, somaTextoInimigo, colunasInimigo, somaInimigo);
+        somaTotalInimigo = somaTotalPontos(somaInimigo);
+
         //Espera um tempo para atualizar o tabuleiro do inimigo
         setTimeout(() => imprimeTabuleiro(tabuleiroInimigo, colunasInimigo), 500);
         
@@ -268,9 +276,13 @@ function acaoInimigo(){
     //Atualiza tabuleiro inimigo
     imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
     atualizaSoma(coluna, somaTextoInimigo, colunasInimigo, somaInimigo);
+    somaTotalInimigo = somaTotalPontos(somaInimigo);
+
     //Atualiza tabuleiro jogador
     retiraValorDoTabuleiro(colunasJogador, coluna, dadoInimigo, caixasJogador);
     atualizaSoma(coluna, somaTextoJogador, colunasJogador, somaJogador);
+    somaTotalJogador = somaTotalPontos(somaJogador);
+    
     //Espera um tempo para atualizar o tabuleiro do jogador
     setTimeout(() => imprimeTabuleiro(tabuleiroJogador, colunasJogador), 500);
     //Verifica se o jogo terminou.
