@@ -9,6 +9,27 @@
     <main>
         <h1>Esbugalhado</h1>
         <h2>Opcoes</h2>
+        <h2>Jogador:</h2>
+                <button onclick="mdrpersonagem()">Mudar Jogador</button>
+                <h2></h2>
+                <img id="characterImage" src="Sprites/Ratau.png" alt="Ratau.png" width="180" height="185">
+                <h2 id="selectedName">Ratau.png</h2>
+                </main>
+
+                <script>
+                    var characterImages = ["Sprites/Ratau.png", "Sprites/lucas.png", "Sprites/Lamb.png", "Sprites/jpsalim.png"];
+                    var currentIndex = 0;
+
+                    function mdrpersonagem() {
+                        var characterImage = document.getElementById("characterImage");
+                        var selectedName = document.getElementById("selectedName");
+                        currentIndex = (currentIndex + 1) % characterImages.length;
+                        characterImage.src = characterImages[currentIndex];
+                        selectedName.textContent = characterImages[currentIndex];
+                    }
+                </script>
+</body>
+</html>
         <p><a href="index.html">Voltar</a></p>
     </main>
 </body>
