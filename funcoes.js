@@ -13,11 +13,17 @@ let colunasJogador = [
     [0, 0, 0],
     [0, 0, 0]
 ];
+let somaJogador = [0, 0, 0];
+let somaTotalJogador = 0;
+
 let colunasInimigo = [
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0]
 ]
+let somaInimigo = [0, 0, 0];
+let somaTotalInimigo = 0;
+
 let dadoValor = 0;
 let dadoInimigo = 0;
 let jogoTerminou = false;
@@ -130,7 +136,7 @@ function quantasVezesApareceNaColuna(coluna, valor){
     return vezes;
 }
 // Retorna a soma de uma coluna
-function somaColuna(coluna){
+function somaColuna(coluna, soma){
     let soma = 0;
     for(let i = 0; i < 3; i++){
         soma += coluna[i] * quantasVezesApareceNaColuna(coluna, coluna[i]);
@@ -138,8 +144,9 @@ function somaColuna(coluna){
     return soma;
 }
 // Atualiza a soma no HTML
-function atualizaSoma(indice, somaTexto, colunas){
+function atualizaSoma(indice, somaTexto, colunas, valorSoma){
     let soma = somaColuna(colunas[indice]);
+    valorSoma[indice] = soma;
     somaTexto[indice].textContent = soma;
 }
 // Retira valor do tabuleiro
@@ -212,10 +219,10 @@ function acaoJogador(coluna){
     if(conseguiu){
         //Atualiza tabuleiro jogador
         imprimeTabuleiro(tabuleiroJogador, colunasJogador);
-        atualizaSoma(coluna, somaTextoJogador, colunasJogador);
+        atualizaSoma(coluna, somaTextoJogador, colunasJogador, somaJogador);
         //Atualiza tabuleiro inimigo
         retiraValorDoTabuleiro(colunasInimigo, coluna, dadoValor, caixasInimigo);
-        atualizaSoma(coluna, somaTextoInimigo, colunasInimigo);
+        atualizaSoma(coluna, somaTextoInimigo, colunasInimigo, somaInimigo);
         //Espera um tempo para atualizar o tabuleiro do inimigo
         setTimeout(() => imprimeTabuleiro(tabuleiroInimigo, colunasInimigo), 500);
         
@@ -260,10 +267,10 @@ function acaoInimigo(){
 
     //Atualiza tabuleiro inimigo
     imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
-    atualizaSoma(coluna, somaTextoInimigo, colunasInimigo);
+    atualizaSoma(coluna, somaTextoInimigo, colunasInimigo, somaInimigo);
     //Atualiza tabuleiro jogador
     retiraValorDoTabuleiro(colunasJogador, coluna, dadoInimigo, caixasJogador);
-    atualizaSoma(coluna, somaTextoJogador, colunasJogador);
+    atualizaSoma(coluna, somaTextoJogador, colunasJogador, somaJogador);
     //Espera um tempo para atualizar o tabuleiro do jogador
     setTimeout(() => imprimeTabuleiro(tabuleiroJogador, colunasJogador), 500);
     //Verifica se o jogo terminou.
