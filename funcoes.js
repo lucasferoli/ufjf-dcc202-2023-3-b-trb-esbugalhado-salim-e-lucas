@@ -308,11 +308,6 @@ function reiniciar(){
 
 export {
     atualizaDado,
-    adicionaValor,
-    atualizaSoma,
-    retiraValorDoTabuleiro,
-    verificaTerminarTabuleiro,
-    determinaVencedor,
     setTabuleiroJogador,
     setSomaTextoJogador,
     setCaixasJogador,

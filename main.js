@@ -13,35 +13,6 @@ import {
     acaoJogador
 } from './funcoes.js';
 
-//Reinicia o jogo do 0. 
-/*
-function reiniciar(){
-    if(timeoutInimigo){
-        clearTimeout(timeoutInimigo);
-    }
-    colunasJogador = [
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0]
-    ]
-    colunasInimigo = [
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0]
-    ]
-    for(let i = 0; i < 3; i++){
-        somaTextoJogador[i].textContent = 0;
-        somaTextoInimigo[i].textContent = 0;
-    }
-    jogoTerminou = false;
-    vencedorTexto.textContent = "Vencedor: ";
-    imprimeTabuleiro(tabuleiroJogador, colunasJogador);
-    imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
-    dadoValor = atualizaDado(dadoImg);
-    for(let i = 0; i < 3; i++){
-        botoes[i].disabled = false;
-    }
-}*/
 //Faz a ação do jogador
 function acaoJogadorAqui(coluna){
     acaoJogador(coluna);
