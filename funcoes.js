@@ -1,3 +1,4 @@
+//Sprites dos dados
 const spritesDados = [
     'Sprites/dado1.png',
     'Sprites/dado2.png',
@@ -6,6 +7,40 @@ const spritesDados = [
     'Sprites/dado5.png',
     'Sprites/dado6.png'
 ]
+//Variáveis do jogo
+let colunasJogador = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+];
+let colunasInimigo = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+]
+let dadoValor = 0;
+let dadoInimigo = 0;
+let jogoTerminou = false;
+let timeoutInimigo;
+
+//Recebe os elementos do HTML do jogador
+let tabuleiroJogador;
+let somaTextoJogador;
+let caixasJogador;
+
+//Recebe os elementos do HTML do inimigo
+let tabuleiroInimigo;
+let somaTextoInimigo;
+let caixasInimigo;
+
+//Recebe elementos gerais do HTML
+let botoes;
+let dadoImg;
+let vencedorTexto;
+let reiniciarBotao;
+
+
+
 
 //Retorna um número aleatório entre 1 e 6
 function rolarDado(){
