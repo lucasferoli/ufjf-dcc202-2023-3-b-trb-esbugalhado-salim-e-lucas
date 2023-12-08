@@ -6,7 +6,17 @@ import {
     retiraValorDoTabuleiro,
     rolarDado,
     verificaTerminarTabuleiro,
-    determinaVencedor
+    determinaVencedor,
+    setTabuleiroJogador,
+    setSomaTextoJogador,
+    setCaixasJogador,
+    setTabuleiroInimigo,
+    setSomaTextoInimigo,
+    setCaixasInimigo,
+    setBotoes,
+    setReiniciarBotao,
+    setDadoImg,
+    setVencedorTexto
 } from './funcoes.js';
 
 import {
@@ -123,19 +133,29 @@ function acaoInimigo(){
 
 //Recebe os elementos do HTML do jogador
 const tabuleiroJogador = document.querySelectorAll("#jogador .caixa img");
+setTabuleiroJogador(tabuleiroJogador);
 const somaTextoJogador = document.querySelectorAll("#somaPlayer .caixa p");
+setSomaTextoJogador(somaTextoJogador);
 const caixasJogador = document.querySelectorAll("#jogador .caixa");
+setCaixasJogador(caixasJogador);
 
 //Recebe os elementos do HTML do inimigo
 const tabuleiroInimigo = document.querySelectorAll("#inimigo .caixa img");
+setTabuleiroInimigo(tabuleiroInimigo);
 const somaTextoInimigo = document.querySelectorAll("#somaInimigo .caixa p");
+setSomaTextoInimigo(somaTextoInimigo);
 const caixasInimigo = document.querySelectorAll("#inimigo .caixa");
+setCaixasInimigo(caixasInimigo);
 
 //Recebe elementos gerais do HTML
 const botoes = document.querySelectorAll("button.botao");
-const dadoImg = document.querySelector("img.dado")
+setBotoes(botoes);
+const dadoImg = document.querySelector("img.dado");
+setDadoImg(dadoImg);
 const vencedorTexto = document.querySelector("p.resultado");
+setVencedorTexto(vencedorTexto);
 const reiniciarBotao = document.querySelector("button.reinicia");
+setReiniciarBotao(reiniciarBotao);
 
 //Variáveis do jogo
 let colunasJogador = [
