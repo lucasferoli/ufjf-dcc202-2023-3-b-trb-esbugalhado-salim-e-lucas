@@ -29,7 +29,7 @@ let dadoInimigo = 0;
 let jogoTerminou = false;
 let timeoutInimigo;
 
-// #region Funções set e variáveis
+// #region Funções set e variáveis HTML
 //Recebe os elementos do HTML do jogador
 let tabuleiroJogador;
 function setTabuleiroJogador(tabuleiro){
@@ -43,6 +43,10 @@ let caixasJogador;
 function setCaixasJogador(caixas){
     caixasJogador = caixas;
 }
+let somaTotalTextoJogador;
+function setSomaTotalTextoJogador(texto){
+    somaTotalTextoJogador = texto;
+}
 //Recebe os elementos do HTML do inimigo
 let tabuleiroInimigo;
 function setTabuleiroInimigo(tabuleiro){
@@ -55,6 +59,10 @@ function setSomaTextoInimigo(texto){
 let caixasInimigo;
 function setCaixasInimigo(caixas){
     caixasInimigo = caixas;
+}
+let somaTotalTextoInimigo;
+function setSomaTotalTextoInimigo(texto){
+    somaTotalTextoInimigo = texto;
 }
 //Recebe elementos gerais do HTML
 let botoes;
@@ -136,7 +144,7 @@ function quantasVezesApareceNaColuna(coluna, valor){
     return vezes;
 }
 // Retorna a soma de uma coluna
-function somaColuna(coluna, soma){
+function somaColuna(coluna){
     let soma = 0;
     for(let i = 0; i < 3; i++){
         soma += coluna[i] * quantasVezesApareceNaColuna(coluna, coluna[i]);
@@ -194,11 +202,12 @@ function verificaTerminarTabuleiro(tabuleiro){
     return true;
 }
 
-function somaTotalPontos(valores){
+function somaTotalPontos(valores, texto){
     let pontos = 0;
     for(let i = 0; i < 3; i++){
         pontos += valores[i];
     }
+    texto.textContent = pontos;
     return pontos;
 }
 //Determina o vencedor
@@ -225,11 +234,11 @@ function acaoJogador(coluna){
         //Atualiza tabuleiro jogador
         imprimeTabuleiro(tabuleiroJogador, colunasJogador);
         atualizaSoma(coluna, somaTextoJogador, colunasJogador, somaJogador);
-        somaTotalJogador = somaTotalPontos(somaJogador);
+        somaTotalJogador = somaTotalPontos(somaJogador, somaTotalTextoJogador);
         //Atualiza tabuleiro inimigo
         retiraValorDoTabuleiro(colunasInimigo, coluna, dadoValor, caixasInimigo);
         atualizaSoma(coluna, somaTextoInimigo, colunasInimigo, somaInimigo);
-        somaTotalInimigo = somaTotalPontos(somaInimigo);
+        somaTotalInimigo = somaTotalPontos(somaInimigo, somaTotalTextoInimigo);
 
         //Espera um tempo para atualizar o tabuleiro do inimigo
         setTimeout(() => imprimeTabuleiro(tabuleiroInimigo, colunasInimigo), 500);
@@ -276,13 +285,13 @@ function acaoInimigo(){
     //Atualiza tabuleiro inimigo
     imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
     atualizaSoma(coluna, somaTextoInimigo, colunasInimigo, somaInimigo);
-    somaTotalInimigo = somaTotalPontos(somaInimigo);
+    somaTotalInimigo = somaTotalPontos(somaInimigo, somaTotalTextoInimigo);
 
     //Atualiza tabuleiro jogador
     retiraValorDoTabuleiro(colunasJogador, coluna, dadoInimigo, caixasJogador);
     atualizaSoma(coluna, somaTextoJogador, colunasJogador, somaJogador);
-    somaTotalJogador = somaTotalPontos(somaJogador);
-    
+    somaTotalJogador = somaTotalPontos(somaJogador, somaTotalTextoJogador);
+
     //Espera um tempo para atualizar o tabuleiro do jogador
     setTimeout(() => imprimeTabuleiro(tabuleiroJogador, colunasJogador), 500);
     //Verifica se o jogo terminou.
@@ -338,5 +347,7 @@ export {
     setVencedorTexto,
     setReiniciarBotao,
     acaoInimigo,
-    acaoJogador
+    acaoJogador,
+    setSomaTotalTextoInimigo,
+    setSomaTotalTextoJogador,
 }

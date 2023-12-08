@@ -10,7 +10,9 @@ import {
     setReiniciarBotao,
     setDadoImg,
     setVencedorTexto,
-    acaoJogador
+    acaoJogador,
+    setSomaTotalTextoJogador,
+    setSomaTotalTextoInimigo
 } from './funcoes.js';
 
 //Faz a ação do jogador
@@ -28,6 +30,9 @@ setSomaTextoJogador(somaTextoJogador);
 const caixasJogador = document.querySelectorAll("#jogador .caixa");
 setCaixasJogador(caixasJogador);
 
+const somaTotalTextoJogador = document.querySelector(".pontosJogador");
+setSomaTotalTextoJogador(somaTotalTextoJogador);
+
 //Recebe os elementos do HTML do inimigo
 const tabuleiroInimigo = document.querySelectorAll("#inimigo .caixa img");
 setTabuleiroInimigo(tabuleiroInimigo);
@@ -37,6 +42,9 @@ setSomaTextoInimigo(somaTextoInimigo);
 
 const caixasInimigo = document.querySelectorAll("#inimigo .caixa");
 setCaixasInimigo(caixasInimigo);
+
+const somaTotalTextoInimigo = document.querySelector(".pontosInimigo");
+setSomaTotalTextoInimigo(somaTotalTextoInimigo);
 
 //Recebe elementos gerais do HTML
 const botoes = document.querySelectorAll("button.botao");
