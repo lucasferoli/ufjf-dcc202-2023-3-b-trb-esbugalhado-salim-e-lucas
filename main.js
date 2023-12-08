@@ -86,15 +86,18 @@ function acaoInimigo(){
     dadoInimigo = rolarDado();
 
     //Escolhe a coluna de forma aleatória
-    /*
+    
     let coluna = Math.floor(Math.random() * 3);
     let conseguiu = adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
     while(!conseguiu){
         coluna = Math.floor(Math.random() * 3);
         conseguiu = adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
-    }*/
+    }
+
+    //Escolhe a coluna conforme as funções do inimigo
+    /* Comentado para testar outras funcionalidades
     let coluna = colunaBom(colunasInimigo, colunasJogador, dadoInimigo);
-    adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
+    adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);*/
 
     //Atualiza tabuleiro inimigo
     imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
