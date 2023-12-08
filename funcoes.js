@@ -63,9 +63,8 @@ let vencedorTexto;
 function setVencedorTexto(texto){
     vencedorTexto = texto;
 }
-let reiniciarBotao;
 function setReiniciarBotao(botao){
-    reiniciarBotao = botao;
+    botao.addEventListener("click", reiniciar);
 }
 //#endregion
 
@@ -203,6 +202,8 @@ function determinaVencedor(colunasJogador, colunasInimigo){
         return "Empate";
     }
 }
+
+//#region funções ativas (Chamam as outras funções para o jogo funcionar)
 function acaoJogador(coluna){
     if(jogoTerminou){
         return;
@@ -278,6 +279,34 @@ function acaoInimigo(){
         }
     }
 }
+function reiniciar(){
+    if(timeoutInimigo){
+        clearTimeout(timeoutInimigo);
+    }
+    colunasJogador = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ]
+    colunasInimigo = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ]
+    for(let i = 0; i < 3; i++){
+        somaTextoJogador[i].textContent = 0;
+        somaTextoInimigo[i].textContent = 0;
+    }
+    jogoTerminou = false;
+    vencedorTexto.textContent = "Vencedor: ";
+    imprimeTabuleiro(tabuleiroJogador, colunasJogador);
+    imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
+    atualizaDado();
+    for(let i = 0; i < 3; i++){
+        botoes[i].disabled = false;
+    }
+}
+//#endregion
 
 export {
     atualizaDado,
