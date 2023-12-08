@@ -23,7 +23,7 @@
 .tabuleiro{
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: repeat(3, 70px);
+    grid-template-columns: repeat(, 70px);
     grid-template-rows: repeat(3, 1fr);
     margin-top: 20px;
     margin-bottom: 10px;
