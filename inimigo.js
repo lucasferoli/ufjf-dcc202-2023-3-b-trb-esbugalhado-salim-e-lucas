@@ -55,11 +55,11 @@ function colunaBom(colunaInimigo, dadoInimigo){
     let maior = ordenaIndices(qtd);
     
     if(qtd[0] == 0 && qtd[1] == 0 && qtd[2] == 0){
-        
+        return selecionaColunaVazia(colunaInimigo);
     }
 
     for(let i = 0; i < 3; i++){
-        if(colunaInimigo[maior[i]][2] == 0){
+        if(colunaValida(colunaInimigo[maior[i]])){
             return maior[i];
         }
     }
