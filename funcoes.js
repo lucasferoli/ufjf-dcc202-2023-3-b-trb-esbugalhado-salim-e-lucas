@@ -98,7 +98,6 @@ function setReiniciarBotao(botao){
 }
 //#endregion
 
-//Teste
 function setInimigo(indice){
     funcaoInimigo = getFunction(indice);
     imgInimigo.src = getSprite(indice);
@@ -328,6 +327,7 @@ function reiniciar(){
     if(timeoutInimigo){
         clearTimeout(timeoutInimigo);
     }
+    setInimigo(Math.floor(Math.random() * 3));
     colunasJogador = [
         [0, 0, 0],
         [0, 0, 0],
