@@ -139,7 +139,8 @@ function adicionaValor(tabuleiro, coluna, valor, caixa){
         return false; // Se a coluna for inválida, retorna false
     }
     let linha = 0;
-    while(tabuleiro[coluna][linha] != 0 && linha < 3){
+    console.log(coluna);
+    while(tabuleiro[coluna][linha] !== 0 && linha < 3){
         linha++;
     }
     if(linha <= 2 && linha >= 0){

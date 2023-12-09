@@ -55,7 +55,9 @@ function colunaBom(colunaInimigo, colunaJogador, dadoInimigo){
     let maior = ordenaIndices(qtd);
     
     if(qtd[0] == 0 && qtd[1] == 0 && qtd[2] == 0){
-        return selecionaColunaVazia(colunaInimigo);
+        let retorno = selecionaColunaVazia(colunaInimigo);
+        console.log(retorno);
+        return retorno;
     }
 
     for(let i = 0; i < 3; i++){
@@ -63,6 +65,7 @@ function colunaBom(colunaInimigo, colunaJogador, dadoInimigo){
             return maior[i];
         }
     }
+    console.log("Erro na escolha de coluna do inimigo");
     return 0;
 }
 
@@ -77,7 +80,7 @@ function colunaAleatoria(colunaInimigo, colunaJogador, dadoValor){
 function selecionaColunaVazia(colunaInimigo){
     let maior = ordenaIndices(colunaInimigo);
     for(let i = 2; i >= 0; i--){
-        if(!colunaValida(colunaInimigo[maior[i]])){
+        if(colunaValida(colunaInimigo[maior[i]])){
             return maior[i];
         }
     }

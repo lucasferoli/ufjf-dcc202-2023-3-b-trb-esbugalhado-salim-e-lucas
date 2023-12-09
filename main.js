@@ -68,7 +68,7 @@ setVencedorTexto(vencedorTexto);
 const reiniciarBotao = document.querySelector("button.reinicia");
 setReiniciarBotao(reiniciarBotao);
 
-setInimigo(1);
+setInimigo(0);
 //Para cada botão, passa a função com o parâmetro da coluna
 for(let i = 0; i < 3; i++){
     botoes[i].addEventListener("click", () => acaoJogadorAqui(i));
