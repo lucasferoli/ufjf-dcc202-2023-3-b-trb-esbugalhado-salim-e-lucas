@@ -104,15 +104,18 @@ function ordenaIndices(coluna){
 let tiposInimigo = [
     {
         nome: "Anjo",
-        coluna: colunaBom
+        coluna: colunaBom,
+        sprite: "Sprites/Anjo.png"
     },
     {
         nome: "Demônio",
-        coluna: colunaMal
+        coluna: colunaMal,
+        sprite: "Sprites/Demonio.png"
     },
     {
         nome: "Zé Ninguém",
-        coluna: colunaAleatoria
+        coluna: colunaAleatoria,
+        sprite: "Sprites/Feliz.png"
     }
 ];
 function getNome(index){
