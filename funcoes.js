@@ -80,6 +80,10 @@ let imgInimigo;
 function setImgInimigo(img){
     imgInimigo = img;
 }
+let nomeInimigo;
+function setNomeInimigo(nome){
+    nomeInimigo = nome;
+}
 //Recebe elementos gerais do HTML
 let botoes;
 function setBotoes(bts){
@@ -101,6 +105,7 @@ function setReiniciarBotao(botao){
 function setInimigo(indice){
     funcaoInimigo = getFunction(indice);
     imgInimigo.src = getSprite(indice);
+    nomeInimigo.textContent = getNome(indice);
     console.log("Mudou o inimigo para " + getNome(indice));
 }
 
@@ -377,5 +382,6 @@ export {
     setSomaTotalTextoJogador,
     setImgInimigo,
     setImgJogador,
-    setInimigo
+    setInimigo,
+    setNomeInimigo
 }

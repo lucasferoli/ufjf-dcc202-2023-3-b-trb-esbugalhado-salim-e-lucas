@@ -15,7 +15,8 @@ import {
     setSomaTotalTextoInimigo,
     setImgJogador,
     setImgInimigo,
-    setInimigo
+    setInimigo,
+    setNomeInimigo,
 } from './funcoes.js';
 
 //Faz a ação do jogador
@@ -54,6 +55,9 @@ setSomaTotalTextoInimigo(somaTotalTextoInimigo);
 
 const imgInimigo = document.querySelector(".imgInimigo");
 setImgInimigo(imgInimigo);
+
+const nomeInimigo = document.querySelector(".nomeInimigo");
+setNomeInimigo(nomeInimigo);
 
 //Recebe elementos gerais do HTML
 const botoes = document.querySelectorAll("button.botao");
