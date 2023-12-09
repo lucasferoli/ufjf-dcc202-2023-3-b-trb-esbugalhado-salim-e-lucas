@@ -66,6 +66,14 @@ function colunaBom(colunaInimigo, dadoInimigo){
     return 0;
 }
 
+function colunaAleatoria(colunaInimigo){
+    let coluna = Math.floor(Math.random() * 3);
+    while(!colunaValida(colunaInimigo[coluna])){
+        coluna = Math.floor(Math.random() * 3);
+    }
+    return coluna;
+}
+
 function selecionaColunaVazia(colunaInimigo){
     let maior = ordenaIndices(colunaInimigo);
     for(let i = 3; i >= 0; i--){
@@ -93,4 +101,25 @@ function ordenaIndices(coluna){
     return maior;
 }
 
-export {colunaBom, colunaMal};
+let tiposInimigo = [
+    anjo = {
+        nome: "Anjo",
+        coluna: colunaBom
+    },
+    demonio = {
+        nome: "Demônio",
+        coluna: colunaMal
+    },
+    aleatorio = {
+        nome: "Zé Ninguém",
+        coluna: colunaAleatoria
+    }
+]
+function getNome(index){
+    return tiposInimigo[index].nome;
+}
+function getFunction(index){
+    return tiposInimigo[index].coluna;
+}
+
+export {getFunction, getNome};

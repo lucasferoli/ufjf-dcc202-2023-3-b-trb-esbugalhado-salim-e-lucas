@@ -1,3 +1,8 @@
+import {
+    getFunction,
+    getNome
+} from "./inimigo.js";
+
 //Sprites dos dados
 const spritesDados = [
     'Sprites/dado1.png',
@@ -28,6 +33,8 @@ let dadoValor = 0;
 let dadoInimigo = 0;
 let jogoTerminou = false;
 let timeoutInimigo;
+
+//Teste
 
 // #region Funções set e variáveis HTML
 //Recebe os elementos do HTML do jogador
