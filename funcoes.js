@@ -35,6 +35,7 @@ let jogoTerminou = false;
 let timeoutInimigo;
 
 //Teste
+let funcaoInimigo = getFunction(2);
 
 // #region Funções set e variáveis HTML
 //Recebe os elementos do HTML do jogador
@@ -277,17 +278,13 @@ function acaoInimigo(){
 
     //Escolhe a coluna de forma aleatória
     
-    let coluna = Math.floor(Math.random() * 3);
+    let coluna = funcaoInimigo(colunasInimigo, colunasJogador, dadoInimigo);
     let conseguiu = adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
-    while(!conseguiu){
+
+    while(!conseguiu){ //Caso não conseguiu colocar, tenta outra coluna aleatória. Essa linha é redundante, mas prefiro manter para evitar problemas
         coluna = Math.floor(Math.random() * 3);
         conseguiu = adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);
     }
-
-    //Escolhe a coluna conforme as funções do inimigo
-    /* Comentado para testar outras funcionalidades
-    let coluna = colunaBom(colunasInimigo, colunasJogador, dadoInimigo);
-    adicionaValor(colunasInimigo, coluna, dadoInimigo, caixasInimigo);*/
 
     //Atualiza tabuleiro inimigo
     imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);

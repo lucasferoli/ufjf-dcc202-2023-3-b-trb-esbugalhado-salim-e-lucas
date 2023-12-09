@@ -42,7 +42,7 @@ function colunaMal(colunaInimigo, colunaJogador, dadoInimigo){
 
 
 //FIXME: Não está funcionando corretamente
-function colunaBom(colunaInimigo, dadoInimigo){
+function colunaBom(colunaInimigo, colunaJogador, dadoInimigo){
     let qtd = [0, 0, 0];
     for(let i = 0; i < 3; i++){
         for(let j = 0; j < 3; j++){
@@ -66,7 +66,7 @@ function colunaBom(colunaInimigo, dadoInimigo){
     return 0;
 }
 
-function colunaAleatoria(colunaInimigo){
+function colunaAleatoria(colunaInimigo, colunaJogador, dadoValor){
     let coluna = Math.floor(Math.random() * 3);
     while(!colunaValida(colunaInimigo[coluna])){
         coluna = Math.floor(Math.random() * 3);
@@ -102,19 +102,19 @@ function ordenaIndices(coluna){
 }
 
 let tiposInimigo = [
-    anjo = {
+    {
         nome: "Anjo",
         coluna: colunaBom
     },
-    demonio = {
+    {
         nome: "Demônio",
         coluna: colunaMal
     },
-    aleatorio = {
+    {
         nome: "Zé Ninguém",
         coluna: colunaAleatoria
     }
-]
+];
 function getNome(index){
     return tiposInimigo[index].nome;
 }
