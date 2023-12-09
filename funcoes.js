@@ -34,6 +34,7 @@ let dadoValor = 0;
 let dadoInimigo = 0;
 let jogoTerminou = false;
 let timeoutInimigo;
+let funcaoInimigo;
 
 
 // #region Funções set e variáveis HTML
@@ -98,9 +99,11 @@ function setReiniciarBotao(botao){
 //#endregion
 
 //Teste
-let funcaoInimigo = getFunction(2);
-console.log("Rodou o código");
-imgInimigo.src = getSprite(2);
+function setInimigo(indice){
+    funcaoInimigo = getFunction(indice);
+    imgInimigo.src = getSprite(indice);
+    console.log("Mudou o inimigo para " + getNome(indice));
+}
 
 //Retorna um número aleatório entre 1 e 6
 function numeroDado(){
@@ -373,4 +376,5 @@ export {
     setSomaTotalTextoJogador,
     setImgInimigo,
     setImgJogador,
+    setInimigo
 }
