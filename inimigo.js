@@ -124,5 +124,8 @@ function getNome(index){
 function getFunction(index){
     return tiposInimigo[index].coluna;
 }
+function getSprite(index){
+    return tiposInimigo[index].sprite;
+}
 
-export {getFunction, getNome};
+export {getFunction, getNome, getSprite};

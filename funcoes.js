@@ -1,6 +1,7 @@
 import {
     getFunction,
-    getNome
+    getNome,
+    getSprite,
 } from "./inimigo.js";
 
 //Sprites dos dados
@@ -34,8 +35,6 @@ let dadoInimigo = 0;
 let jogoTerminou = false;
 let timeoutInimigo;
 
-//Teste
-let funcaoInimigo = getFunction(2);
 
 // #region Funções set e variáveis HTML
 //Recebe os elementos do HTML do jogador
@@ -55,6 +54,10 @@ let somaTotalTextoJogador;
 function setSomaTotalTextoJogador(texto){
     somaTotalTextoJogador = texto;
 }
+let imgJogador;
+function setImgJogador(img){
+    imgJogador = img;
+}
 //Recebe os elementos do HTML do inimigo
 let tabuleiroInimigo;
 function setTabuleiroInimigo(tabuleiro){
@@ -71,6 +74,10 @@ function setCaixasInimigo(caixas){
 let somaTotalTextoInimigo;
 function setSomaTotalTextoInimigo(texto){
     somaTotalTextoInimigo = texto;
+}
+let imgInimigo;
+function setImgInimigo(img){
+    imgInimigo = img;
 }
 //Recebe elementos gerais do HTML
 let botoes;
@@ -89,6 +96,11 @@ function setReiniciarBotao(botao){
     botao.addEventListener("click", reiniciar);
 }
 //#endregion
+
+//Teste
+let funcaoInimigo = getFunction(2);
+console.log("Rodou o código");
+imgInimigo.src = getSprite(2);
 
 //Retorna um número aleatório entre 1 e 6
 function numeroDado(){
@@ -356,8 +368,9 @@ export {
     setDadoImg,
     setVencedorTexto,
     setReiniciarBotao,
-    acaoInimigo,
     acaoJogador,
     setSomaTotalTextoInimigo,
     setSomaTotalTextoJogador,
+    setImgInimigo,
+    setImgJogador,
 }

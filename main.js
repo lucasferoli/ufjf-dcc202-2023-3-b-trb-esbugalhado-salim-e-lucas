@@ -12,7 +12,9 @@ import {
     setVencedorTexto,
     acaoJogador,
     setSomaTotalTextoJogador,
-    setSomaTotalTextoInimigo
+    setSomaTotalTextoInimigo,
+    setImgJogador,
+    setImgInimigo
 } from './funcoes.js';
 
 //Faz a ação do jogador
@@ -33,6 +35,9 @@ setCaixasJogador(caixasJogador);
 const somaTotalTextoJogador = document.querySelector(".pontosJogador");
 setSomaTotalTextoJogador(somaTotalTextoJogador);
 
+const imgJogador = document.querySelector(".imgJogador");
+setImgJogador(imgJogador);  
+
 //Recebe os elementos do HTML do inimigo
 const tabuleiroInimigo = document.querySelectorAll("#inimigo .caixa img");
 setTabuleiroInimigo(tabuleiroInimigo);
@@ -45,6 +50,9 @@ setCaixasInimigo(caixasInimigo);
 
 const somaTotalTextoInimigo = document.querySelector(".pontosInimigo");
 setSomaTotalTextoInimigo(somaTotalTextoInimigo);
+
+const imgInimigo = document.querySelector(".imgInimigo");
+setImgInimigo(imgInimigo);
 
 //Recebe elementos gerais do HTML
 const botoes = document.querySelectorAll("button.botao");
