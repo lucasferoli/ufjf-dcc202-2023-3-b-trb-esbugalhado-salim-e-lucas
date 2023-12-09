@@ -68,6 +68,10 @@ div.final{
 .final div p{
     margin: 10px;
 }
+.centralizar img{
+    width: 200px;
+    height: 200px;
+}
 
 @keyframes colocaPeca {
     0% {background-color: #cecece;}
