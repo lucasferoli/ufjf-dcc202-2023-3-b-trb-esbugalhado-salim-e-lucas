@@ -76,7 +76,7 @@ function colunaAleatoria(colunaInimigo, colunaJogador, dadoValor){
 
 function selecionaColunaVazia(colunaInimigo){
     let maior = ordenaIndices(colunaInimigo);
-    for(let i = 3; i >= 0; i--){
+    for(let i = 2; i >= 0; i--){
         if(!colunaValida(colunaInimigo[maior[i]])){
             return maior[i];
         }
