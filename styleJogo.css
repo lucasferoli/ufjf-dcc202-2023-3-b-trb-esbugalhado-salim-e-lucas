@@ -82,6 +82,7 @@ div.final{
     height: 200px;
 }
 .colunaEsquerda {
+    margin-top: 10%;
     border: 2px solid #212121;
     border-radius: 20px;
     padding: 10px;
@@ -90,6 +91,7 @@ div.final{
     border: 2px solid #212121;
     border-radius: 20px;
     padding: 10px;
+    margin-top: -20%;
 }
 .botao{
     display: flex;
@@ -102,6 +104,7 @@ div.final{
     width: 67px;
     border: none;
     border-radius: 5px;
+    background-color: #ffffff;
 }
 .divInimiga{
     display: flex;
