@@ -287,6 +287,7 @@ function acaoJogador(coluna){
     } else {
         //FIXME:
         //Colocar som ou alguma coisa para indicar que não conseguiu colocar
+        botoes[coluna].classList.add("shake");
         console.log("Não conseguiu colocar");
     }
 }
