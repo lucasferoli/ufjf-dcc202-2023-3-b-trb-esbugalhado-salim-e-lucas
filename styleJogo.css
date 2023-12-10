@@ -82,7 +82,7 @@ div.final{
     height: 200px;
 }
 .colunaEsquerda {
-    margin-top: 10%;
+    margin-top: 200px;
     border: 2px solid #212121;
     border-radius: 20px;
     padding: 10px;
@@ -91,7 +91,7 @@ div.final{
     border: 2px solid #212121;
     border-radius: 20px;
     padding: 10px;
-    margin-top: -20%;
+    margin-top: -350px;
 }
 .botao{
     display: flex;
@@ -119,6 +119,10 @@ div.final{
 }
 .botao:hover {
     background-color: red;
+}
+.centralizar p{
+    margin: 5px;
+    font-size: 25px;
 }
 
 @keyframes colocaPeca {
