@@ -39,9 +39,6 @@ function colunaMal(colunaInimigo, colunaJogador, dadoInimigo){
     return 0;
 }
 
-
-
-//FIXME: Não está funcionando corretamente
 function colunaBom(colunaInimigo, colunaJogador, dadoInimigo){
     let qtd = [0, 0, 0];
     for(let i = 0; i < 3; i++){

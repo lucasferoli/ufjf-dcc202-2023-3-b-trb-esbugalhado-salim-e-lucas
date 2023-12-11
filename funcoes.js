@@ -157,6 +157,7 @@ function adicionaValor(tabuleiro, coluna, valor, caixa){
     console.log("Coluna cheia");
     return false;
 }
+// Retira a classe colocar da caixa, permitindo chamar novamente a animação
 function reiniciaAnimacaoColocar(caixa){
     caixa.classList.remove("colocar");
 }
@@ -229,7 +230,7 @@ function verificaTerminarTabuleiro(tabuleiro){
     }
     return true;
 }
-
+//Soma os pontos de um tabuleiro
 function somaTotalPontos(valores, texto){
     let pontos = 0;
     for(let i = 0; i < 3; i++){
