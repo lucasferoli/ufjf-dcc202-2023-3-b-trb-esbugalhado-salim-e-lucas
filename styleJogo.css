@@ -124,6 +124,9 @@ div.final{
     margin: 5px;
     font-size: 25px;
 }
+.caixa p{
+    color: black;
+}
 
 @keyframes colocaPeca {
     0% {background-color: #cecece;}
