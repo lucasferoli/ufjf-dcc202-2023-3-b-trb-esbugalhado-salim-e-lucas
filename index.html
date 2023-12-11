@@ -1,23 +1,38 @@
+<!-- As imagens uiltilizadas foram copiadas do jogo oficial e modificadas para se encaixar em nosso trabalho,
+ultilizando o aplicativo msPaint e um site online para retirar backgrounds, os audios foram baixados do 
+youtub como mp3 -->
+
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esbugalhado</title>
+
+    <!-- Icone abaixo mostra na parte superior da tela-->
     <link rel="icon" href="Sprites\lamb.png">
-    <style>
-    </style>
+
 </head>
 <body background="Sprites\backgroundinicial.png">
+
+    <!-- Este audio, incluido nas páginas, é para simular o som de um click nos href que levam a outras páginas. Creio que pode ser melhorado,
+    mas não sou capaz ainda. FIXME: Falta controlar o volume, possivelmente habilitar ou desabilitar volume em uma nova página apenas de opções-->
     <audio autoplay>
         <source src="Click.mp3" type="audio/mpeg">
       </audio>
+      <audio autoplay loop>
+        <source src="soundtrack.mp3" type="audio/mpeg">
+      </audio>
+
     <main>
+        <!-- Os comandos abaixo são para melhorar a posição e a cor dos textos na página, podem ser repetidos de maneiras diferentes
+        dependendo de qual grupo de texto/comandos desejo transformar em relação a posição e cor do elemento-->
     <center>
-        <font size="+4"; color="white">
-            <div style = "position:relative; left:0px; top:270px;">
+        <font size="+4" color="white">
+        <div style="position:relative; left:0px; top:100px;">
         <h1>Esbugalhado</h1>
-            </div>
+        </div>
             <font size="+3" color="white">
                 <div style="position:relative; left:0px; top:400px;">
                     <p><a href="tutorial.html" id="tutorial-link" style="color:white; text-decoration:none;">Tutorial</a></p>
