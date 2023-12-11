@@ -289,7 +289,6 @@ function acaoJogador(coluna){
         //Colocar som ou alguma coisa para indicar que não conseguiu colocar
         botoes[coluna].classList.add("shake");
         setTimeout(() => resetShake(botoes[coluna]), 500);
-        console.log("Não conseguiu colocar");
     }
 }
 function resetShake(botao){
