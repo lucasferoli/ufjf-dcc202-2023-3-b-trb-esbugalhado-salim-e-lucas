@@ -113,7 +113,7 @@ let tiposInimigo = [
     {
         nome: "Demônio",
         coluna: colunaMal,
-        sprite: "Sprites/Demonio.png"
+        sprite: "Sprites/diabo.png"
     },
     {
         nome: "Zé Ninguém",
