@@ -105,7 +105,7 @@ let tiposInimigo = [
     {
         nome: "Anjo",
         coluna: colunaBom,
-        sprite: "Sprites/Anjo.png"
+        sprite: "Sprites/Anjo.gif"
     },
     {
         nome: "Demônio",
