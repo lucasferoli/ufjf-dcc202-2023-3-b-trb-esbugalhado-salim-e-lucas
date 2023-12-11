@@ -110,12 +110,12 @@ let tiposInimigo = [
     {
         nome: "Demônio",
         coluna: colunaMal,
-        sprite: "Sprites/diabo.png"
+        sprite: "Sprites/Diabo.gif"
     },
     {
         nome: "Zé Ninguém",
         coluna: colunaAleatoria,
-        sprite: "Sprites/Feliz.png"
+        sprite: "Sprites/LighthouseKeeper.gif"
     }
 ];
 function getNome(index){
