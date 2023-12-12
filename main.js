@@ -82,7 +82,7 @@ setDadoImg(dadoImg);
 const vencedorTexto = document.querySelector("p.resultado");
 setVencedorTexto(vencedorTexto);
 
-setInimigo(0);
+setInimigo(2);
 //Para cada botão, passa a função com o parâmetro da coluna
 for(let i = 0; i < 3; i++){
     botoes[i].addEventListener("click", () => acaoJogadorAqui(i));
