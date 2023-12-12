@@ -247,8 +247,10 @@ function determinaVencedor(){
     let vencedor = "Empate";
     if(jogador > inimigo){
         vencedor = "Jogador";
+        window.location.href = "vitoria.html";
     } else if(jogador < inimigo){
         vencedor = "Inimigo";
+        window.location.href = "derrota.html";
     } 
     vencedorTexto.textContent = "Vencedor: " + vencedor;
 }
