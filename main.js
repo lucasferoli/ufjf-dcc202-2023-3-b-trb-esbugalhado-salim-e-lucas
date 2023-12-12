@@ -7,7 +7,6 @@ import {
     setSomaTextoInimigo,
     setCaixasInimigo,
     setBotoes,
-    setReiniciarBotao,
     setDadoImg,
     setVencedorTexto,
     acaoJogador,
@@ -68,9 +67,6 @@ setDadoImg(dadoImg);
 
 const vencedorTexto = document.querySelector("p.resultado");
 setVencedorTexto(vencedorTexto);
-
-const reiniciarBotao = document.querySelector("button.reinicia");
-setReiniciarBotao(reiniciarBotao);
 
 setInimigo(Math.floor(Math.random() * 3));
 //Para cada botão, passa a função com o parâmetro da coluna

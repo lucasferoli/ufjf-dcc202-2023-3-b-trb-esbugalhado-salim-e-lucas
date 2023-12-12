@@ -97,9 +97,6 @@ let vencedorTexto;
 function setVencedorTexto(texto){
     vencedorTexto = texto;
 }
-function setReiniciarBotao(botao){
-    botao.addEventListener("click", reiniciar);
-}
 //#endregion
 
 function setInimigo(indice){
@@ -383,7 +380,6 @@ export {
     setBotoes,
     setDadoImg,
     setVencedorTexto,
-    setReiniciarBotao,
     acaoJogador,
     setSomaTotalTextoInimigo,
     setSomaTotalTextoJogador,
