@@ -241,14 +241,16 @@ function determinaVencedor(){
     let jogador = somaTotalJogador;
     let inimigo = somaTotalInimigo;
 
-    let vencedor = "Empate";
     if(jogador > inimigo){
-        vencedor = "Jogador";
-        window.location.href = "vitoria.html";
+        setTimeout(() => mudaHtml("vitoria.html"), 2000);
     } else if(jogador < inimigo){
-        vencedor = "Inimigo";
-        window.location.href = "derrota.html";
-    } 
+        setTimeout(() => mudaHtml("derrota.html"), 2000);
+    } else {
+        setTimeout(() => mudaHtml("empate.html"), 2000);
+    }
+}
+function mudaHtml(string){
+    window.location.href = string;
 }
 
 //#region funções ativas (Chamam as outras funções para o jogo funcionar)
