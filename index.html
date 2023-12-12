@@ -1,8 +1,6 @@
 <!-- As imagens uiltilizadas foram copiadas do jogo oficial e modificadas para se encaixar em nosso trabalho,
 ultilizando o aplicativo msPaint, um site online para retirar backgrounds e para baixar gifs, os audios foram baixados do 
 youtub como mp3 -->
-
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -13,21 +11,7 @@ youtub como mp3 -->
     <link rel="icon" href="Sprites\lamb.png">
     
         <!-- Nome botaor por o nome botao já ter sido ultilizado e eu não ser criativo -->
-    <style>
-        .botaor {
-            background-color: red;
-            border: black;
-            color:white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 12;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="styleIndex.css">
 </head>
 
 <body background="Sprites\backgroundinicial.png">
@@ -41,19 +25,14 @@ youtub como mp3 -->
     <main>
         <!-- Os comandos abaixo são para melhorar a posição e a cor dos textos na página, podem ser repetidos de maneiras diferentes
         dependendo de qual grupo de texto/comandos desejo transformar em relação a posição e cor do elemento-->
-        <center>
-            <font size="+4" color="white">
-            <div style="position:relative; left:0px; top:100px;">
+        <div>
             <h1 class="shine">Esbugalhado</h1>
-            </div>
-                <font size="+3" color="white">
-                    <div style="position:relative; left:0px; top:400px;">
-                            <p><a href="tutorial.html" class="botaor">Tutorial</a></p>
-                            <p><a href="creditos.html" class="botaor">Creditos</a></p>
-                            <p><a href="jogo.html" class="botaor">Jogar</a></p>
-                    </div>
-                </font>
-        </center>
+            <p><a href="tutorial.html" class="botao">Tutorial</a></p>
+            <p><a href="creditos.html" class="botao">Creditos</a></p>
+            <p><a href="jogo.html" class="botao">Jogar</a></p>
+        </div>
+                
+        
     </main>
 </body>
 </html>
