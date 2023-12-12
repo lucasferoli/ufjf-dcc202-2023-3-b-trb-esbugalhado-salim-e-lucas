@@ -6,21 +6,7 @@
     <title>Creditos</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="Sprites\lamb.png">
-    <style>
-        .botaor {
-            background-color: red;
-            border: black;
-            color:white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 12;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="styleDerrota.css">
 </head>
 <body background="Sprites\backgroundinicial.png">
     
@@ -28,14 +14,11 @@
         <source src="victory.mp3" type="audio/mpeg">
     </audio>
     <main>
-        <div style="position:relative; left:0px; top:175px;">
-            <h2>Vitória!</h2>
-        </div>
-        <div style="position:relative; left:0px; top:230px;">
+        <div class="centralizar">
+            <h1>Vitória!</h1>
             <img src="Sprites/vencer.gif.gif">
-        </div>
-        <div style="position:relative; left:0px; top:330px;">
             <p><a href="jogo.html" class="botaor">Reiniciar</a></p>
+            <p><a href="index.html" class="botaor">Voltar</a></p>
         </div>
     </main>
 </body>
