@@ -97,6 +97,10 @@ let vencedorTexto;
 function setVencedorTexto(texto){
     vencedorTexto = texto;
 }
+let botaoInimigo;
+function setBotaoInimigo(botao){
+    botaoInimigo = botao;
+}
 //#endregion
 
 function setInimigo(indice){
@@ -254,6 +258,7 @@ function determinaVencedor(){
 
 //#region funções ativas (Chamam as outras funções para o jogo funcionar)
 function acaoJogador(coluna){
+    botaoInimigo.remove();
     if(jogoTerminou){
         return;
     }
@@ -386,5 +391,6 @@ export {
     setImgInimigo,
     setImgJogador,
     setInimigo,
-    setNomeInimigo
+    setNomeInimigo,
+    setBotaoInimigo,
 }

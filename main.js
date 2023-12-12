@@ -16,6 +16,7 @@ import {
     setImgInimigo,
     setInimigo,
     setNomeInimigo,
+    setBotaoInimigo,
 } from './funcoes.js';
 
 //Faz a ação do jogador
@@ -58,6 +59,19 @@ setImgInimigo(imgInimigo);
 const nomeInimigo = document.querySelector(".nomeInimigo");
 setNomeInimigo(nomeInimigo);
 
+let inimigo = 0;
+const botaoInimigo = document.querySelector("button.botaor");
+setBotaoInimigo(botaoInimigo);
+botaoInimigo.addEventListener("click", mudaInimigo);
+
+function mudaInimigo(){
+    inimigo++;
+    if(inimigo > 2){
+        inimigo = 0;
+    }
+    setInimigo(inimigo);
+}
+
 //Recebe elementos gerais do HTML
 const botoes = document.querySelectorAll("button.botao");
 setBotoes(botoes);
@@ -68,7 +82,7 @@ setDadoImg(dadoImg);
 const vencedorTexto = document.querySelector("p.resultado");
 setVencedorTexto(vencedorTexto);
 
-setInimigo(Math.floor(Math.random() * 3));
+setInimigo(0);
 //Para cada botão, passa a função com o parâmetro da coluna
 for(let i = 0; i < 3; i++){
     botoes[i].addEventListener("click", () => acaoJogadorAqui(i));
