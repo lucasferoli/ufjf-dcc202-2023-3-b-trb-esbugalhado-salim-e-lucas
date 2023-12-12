@@ -2,21 +2,29 @@
     background-color: red;
     border: black;
     color:white;
-    padding: 10px 20px;
+    padding: 15px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 12;
+    font-size: 30;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 10px;
 }
 div {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 h1{
     color: white;
+    padding-bottom: 40px;
+    padding-top: 15px;
+}
+img{
+    padding-bottom: 13%;
+}
+a{
+    font-size: 30px;
 }
