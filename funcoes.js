@@ -101,6 +101,7 @@ function setBotaoInimigo(botao){
 }
 //#endregion
 
+//Muda o inimigo
 function setInimigo(indice){
     funcaoInimigo = getFunction(indice);
     imgInimigo.src = getSprite(indice);
@@ -252,6 +253,7 @@ function determinaVencedor(){
         setTimeout(() => mudaHtml("empate.html"), 2000);
     }
 }
+//Muda a página html
 function mudaHtml(string){
     window.location.href = string;
 }
@@ -296,9 +298,11 @@ function acaoJogador(coluna){
         setTimeout(() => resetShake(botoes[coluna]), 500);
     }
 }
+// Tira a classe shake do botão para poder chamar a animação novamente
 function resetShake(botao){
     botao.classList.remove("shake");
 }
+//Faz a ação do inimigo
 function acaoInimigo(){
     if(jogoTerminou){
         return;
@@ -336,40 +340,6 @@ function acaoInimigo(){
         for(let i = 0; i < botoes.length; i++){
             botoes[i].disabled = false;
         }
-    }
-}
-function reiniciar(){
-    if(timeoutInimigo){
-        clearTimeout(timeoutInimigo);
-    }
-    setInimigo(Math.floor(Math.random() * 3));
-    colunasJogador = [
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0]
-    ]
-    colunasInimigo = [
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0]
-    ]
-    somaTotalInimigo = 0;
-    somaTotalJogador = 0;
-    somaJogador = [0, 0, 0];
-    somaInimigo = [0, 0, 0];
-    for(let i = 0; i < 3; i++){
-        somaTextoJogador[i].textContent = 0;
-        somaTextoInimigo[i].textContent = 0;
-    }
-    jogoTerminou = false;
-    vencedorTexto.textContent = "Vencedor: ";
-    imprimeTabuleiro(tabuleiroJogador, colunasJogador);
-    imprimeTabuleiro(tabuleiroInimigo, colunasInimigo);
-    somaTotalTextoInimigo.textContent = 0;
-    somaTotalTextoJogador.textContent = 0;
-    atualizaDado();
-    for(let i = 0; i < 3; i++){
-        botoes[i].disabled = false;
     }
 }
 //#endregion
