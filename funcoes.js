@@ -93,10 +93,6 @@ let dadoImg;
 function setDadoImg(img){
     dadoImg = img;
 }
-let vencedorTexto;
-function setVencedorTexto(texto){
-    vencedorTexto = texto;
-}
 let botaoInimigo;
 function setBotaoInimigo(botao){
     botaoInimigo = botao;
@@ -253,7 +249,6 @@ function determinaVencedor(){
         vencedor = "Inimigo";
         window.location.href = "derrota.html";
     } 
-    vencedorTexto.textContent = "Vencedor: " + vencedor;
 }
 
 //#region funções ativas (Chamam as outras funções para o jogo funcionar)
@@ -384,7 +379,6 @@ export {
     setCaixasInimigo,
     setBotoes,
     setDadoImg,
-    setVencedorTexto,
     acaoJogador,
     setSomaTotalTextoInimigo,
     setSomaTotalTextoJogador,

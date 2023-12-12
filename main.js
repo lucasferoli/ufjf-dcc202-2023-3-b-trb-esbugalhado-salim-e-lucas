@@ -8,7 +8,6 @@ import {
     setCaixasInimigo,
     setBotoes,
     setDadoImg,
-    setVencedorTexto,
     acaoJogador,
     setSomaTotalTextoJogador,
     setSomaTotalTextoInimigo,
@@ -59,7 +58,7 @@ setImgInimigo(imgInimigo);
 const nomeInimigo = document.querySelector(".nomeInimigo");
 setNomeInimigo(nomeInimigo);
 
-let inimigo = 0;
+let inimigo = 2;
 const botaoInimigo = document.querySelector(".colunaDireita button.botaor");
 setBotaoInimigo(botaoInimigo);
 botaoInimigo.addEventListener("click", mudaInimigo);
@@ -78,9 +77,6 @@ setBotoes(botoes);
 
 const dadoImg = document.querySelector("img.dado");
 setDadoImg(dadoImg);
-
-const vencedorTexto = document.querySelector("p.resultado");
-setVencedorTexto(vencedorTexto);
 
 setInimigo(2);
 //Para cada botão, passa a função com o parâmetro da coluna
