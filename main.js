@@ -60,7 +60,7 @@ const nomeInimigo = document.querySelector(".nomeInimigo");
 setNomeInimigo(nomeInimigo);
 
 let inimigo = 0;
-const botaoInimigo = document.querySelector("button.botaor");
+const botaoInimigo = document.querySelector(".colunaDireita button.botaor");
 setBotaoInimigo(botaoInimigo);
 botaoInimigo.addEventListener("click", mudaInimigo);
 
