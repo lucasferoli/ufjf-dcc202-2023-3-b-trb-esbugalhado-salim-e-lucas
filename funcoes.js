@@ -35,6 +35,8 @@ let dadoInimigo = 0;
 let jogoTerminou = false;
 let timeoutInimigo;
 let funcaoInimigo;
+let audioColocarDado = new Audio("Abstract2.mp3");
+audioColocarDado.volume = 1;
 
 
 // #region Funções set e variáveis HTML
@@ -147,6 +149,7 @@ function adicionaValor(tabuleiro, coluna, valor, caixa){
     }
     if(linha <= 2 && linha >= 0){
         tabuleiro[coluna][linha] = valor;
+        audioColocarDado.play();
         caixa[coluna * 3 + linha].classList.add("colocar");
         setTimeout(() => reiniciaAnimacaoColocar(caixa[coluna * 3 + linha]), 500);
         return true;

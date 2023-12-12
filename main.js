@@ -58,6 +58,9 @@ setImgInimigo(imgInimigo);
 const nomeInimigo = document.querySelector(".nomeInimigo");
 setNomeInimigo(nomeInimigo);
 
+const musica = document.querySelector(".musica");
+musica.volume = 0.1;
+
 let inimigo = 2;
 const botaoInimigo = document.querySelector(".colunaDireita button.botaor");
 setBotaoInimigo(botaoInimigo);
