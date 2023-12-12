@@ -19,6 +19,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(163, 157, 136);
+    width: 300px;
 }
 .tabuleiro{
     display: flex;
