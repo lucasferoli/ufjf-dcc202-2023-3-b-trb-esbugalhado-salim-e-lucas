@@ -109,6 +109,7 @@ function setInimigo(indice){
     console.log("Mudou o inimigo para " + getNome(indice));
 }
 
+// #region Funções dos dados
 //Retorna um número aleatório entre 1 e 6
 function numeroDado(){
     return Math.floor(Math.random() * 6) + 1;
@@ -122,7 +123,9 @@ function atualizaDado(){
     dadoValor = numeroDado();
     dadoImg.src = imagemDado(dadoValor - 1);
 }
+// #endregion
 
+// #region Funções do tabuleiro
 // Imprime o tabuleiro no HTML
 function imprimeTabuleiro(tabuleiro, colunas){
     for(let i = 0; i < 3; i++){
@@ -136,7 +139,6 @@ function imprimeTabuleiro(tabuleiro, colunas){
         }
     }
 }
-
 // Adiciona um valor na coluna do tabuleiro
 function adicionaValor(tabuleiro, coluna, valor, caixa){
     if(coluna < 0 || coluna > 2) {
@@ -158,11 +160,6 @@ function adicionaValor(tabuleiro, coluna, valor, caixa){
     console.log("Coluna cheia");
     return false;
 }
-// Retira a classe colocar da caixa, permitindo chamar novamente a animação
-function reiniciaAnimacaoColocar(caixa){
-    caixa.classList.remove("colocar");
-}
-
 // Retorna quantas vezes um valor aparece na coluna
 function quantasVezesApareceNaColuna(coluna, valor){
     let vezes = 0;
@@ -216,10 +213,6 @@ function retiraValorDoTabuleiro(colunas, coluna, valor, caixa){
     }
     return;
 }
-// Reinicia animação, permitindo chamar novamente.
-function reiniciaAnimacaoRetirar(caixa){
-    caixa.classList.remove("retirar");
-}
 //Verifica se o tabuleiro está completo. 
 function verificaTerminarTabuleiro(tabuleiro){
     for(let i = 0; i < 3; i++){
@@ -240,7 +233,17 @@ function somaTotalPontos(valores, texto){
     texto.textContent = pontos;
     return pontos;
 }
-//Determina o vencedor
+// #endregion
+
+// #region Funções de animação
+function reiniciaAnimacaoColocar(caixa){
+    caixa.classList.remove("colocar");
+}
+function reiniciaAnimacaoRetirar(caixa){
+    caixa.classList.remove("retirar");
+}
+// #endregion
+
 function determinaVencedor(){
     let jogador = somaTotalJogador;
     let inimigo = somaTotalInimigo;
@@ -253,7 +256,7 @@ function determinaVencedor(){
         setTimeout(() => mudaHtml("empate.html"), 2000);
     }
 }
-//Muda a página html
+// Criei essa função para poder usar o setTimeout
 function mudaHtml(string){
     window.location.href = string;
 }
