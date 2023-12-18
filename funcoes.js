@@ -295,8 +295,7 @@ function acaoJogador(coluna){
             timeoutInimigo = setTimeout(acaoInimigo, 1000);
         }
     } else {
-        //FIXME:
-        //Colocar som ou alguma coisa para indicar que não conseguiu colocar
+        
         botoes[coluna].classList.add("shake");
         setTimeout(() => resetShake(botoes[coluna]), 500);
     }

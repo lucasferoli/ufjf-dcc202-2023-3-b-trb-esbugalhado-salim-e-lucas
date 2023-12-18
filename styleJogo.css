@@ -3,16 +3,22 @@
     flex-direction: row;
     justify-content: space-around;
 }
+
 .centralizar{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+
 .centralizar p{
     margin: 10;
     font-size: 25px;
 }
+
+/* Cria o design da coluna principal */
+
 .colunaPrincipal{
     display: flex;
     flex-direction: column;
@@ -43,6 +49,8 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+/* Cria o design da caixa em que ficam os dados */
+
 .caixa{
     width: 40px;
     height: 40px;
@@ -111,6 +119,9 @@ div.final{
     height: 350px;
     width: 250px;
 }
+
+/* Design dos botões (Colunas) em que se clica para colocar os dados*/
+
 .botao{
     display: flex;
     flex-direction: column;
@@ -124,6 +135,8 @@ div.final{
     border-radius: 5px;
     background-color: #ffffff00;
 }
+
+
 .divInimiga{
     display: flex;
     flex-direction: column;
@@ -132,9 +145,26 @@ div.final{
     padding: 0px;
     margin: 0px;
     height: auto;
-    width: 67px;
+.botaor {
+    background-color: #cecece;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12;
+    cursor: pointer;
+    border-radius: 10px;
+}
+button.botaor{
+    margin-top: 10px;
+    padding: 20px 20px;
+    font-size: 20px;
+}    width: 67px;
     border: none;
 }
+/* Da o aspecto de estar escolhendo ao se deixar o mouse em cima das colunas*/
 .botao:hover {
     background-color: red;
 }
@@ -145,6 +175,9 @@ div.final{
 .caixa p{
     color: black;
 }
+
+/* Botão do href, para ir e voltar */
+
 .botaor {
     background-color: red;
     border: black;
@@ -162,6 +195,9 @@ button.botaor{
     padding: 20px 20px;
     font-size: 20px;
 }
+
+
+/* Pequena Animação ao se colocar e tirar peça */
 
 @keyframes colocaPeca {
     0% {background-color: #cecece;}
@@ -182,6 +218,8 @@ button.botaor{
     animation: retiraPeca 0.5s;
 }
 
+/* Animação que ocorre ao se tentar colocar uma peça em uma coluna cheia */
+
 @keyframes shake {
     0% {transform: translateX(0px);}
     25% {transform: translateX(5px);}
@@ -198,15 +236,3 @@ body, html {
     height: 100%;
 }
 
-.bg {
-    /* The image used */
-    background-image: url("Sprites\backgroundinicial.png");
-
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
